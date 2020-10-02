@@ -31,41 +31,82 @@ function convertInnerToInnerNode(inner: Inner): NodeViewModel {
     return;
 }
 
-interface NodeViewModelProps {
-    nodeViewModel: NodeViewModel;
+enum NodeViewModelMode {
+    Read,
+    Edit
 }
 
-const NodeViewModel = (props: NodeViewModelProps): JSX.Element => {
-    const {nodeViewModel} = props;
-    return (
-        <div className="view-model">
-            {
-                nodeViewModel.value ?
-                    <div className="view-model-item">
-                        <span>value: </span>
-                        <label>{nodeViewModel.value}</label>
-                    </div>
-                    : ``
-            }
-            {
-                nodeViewModel.error ?
-                    <div className="view-model-item">
-                        <span>error: </span>
-                        <label>{nodeViewModel.error}</label>
-                    </div>
-                    : ``
-            }
-            {
-                nodeViewModel.children ?
-                    <div className="view-model-item">
-                        <span>children: </span>
-                        <label>{nodeViewModel.children}</label>
-                    </div>
-                    : ``
-            }
-        </div>
-    );
-};
+interface NodeViewModelProps {
+    itemName: string;
+    itemDescription: string | []
+}
+
+interface NodeViewModelState {
+    currentMode: NodeViewModelMode,
+    currentDescription: string | string[]
+}
+
+class NodeViewModel extends React.PureComponent<NodeViewModelProps, NodeViewModelState> {
+    constructor(props: NodeViewModelProps) {
+        super(props);
+
+        this.state = {
+            currentMode: NodeViewModelMode.Read,
+            currentDescription: this.props.itemDescription
+        }
+    }
+
+    render() {
+        const {itemName, itemDescription} = this.props;
+        const {currentMode, currentDescription} = this.state;
+
+        return (
+            <div className="view-model-item">
+                <span>{itemName}: </span>
+                {currentMode === NodeViewModelMode.Read
+                    ? <label onDoubleClick={this._handleDoubleClickOnViewModelItemDescription}>{itemDescription}</label>
+                    : <input value={currentDescription} onChange={this._handleChangeViewModelItemDescription}
+                             onKeyDown={this._handleKeyDownViewModelItemDescription}/>
+                }
+            </div>
+        );
+    }
+
+    _handleDoubleClickOnViewModelItemDescription = () => {
+        this.setState({
+            currentMode: NodeViewModelMode.Edit
+        })
+    }
+
+    _handleChangeViewModelItemDescription = (evt: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            currentDescription: evt.target.value
+        })
+    }
+
+    _handleKeyDownViewModelItemDescription = (evt: React.KeyboardEvent) => {
+        const {itemDescription} = this.props;
+
+        const isEnterKey: boolean = evt.key === `Enter`;
+        const isEscKey: boolean = evt.key === `Esc` || evt.key === `Escape`;
+
+        let newDescription;
+        if (isEscKey) {
+            newDescription = itemDescription;
+        }
+        if (isEnterKey) {
+            newDescription = this.state.currentDescription
+        }
+
+        if (newDescription != undefined) {
+            this.setState({
+                currentMode: NodeViewModelMode.Read,
+                currentDescription: newDescription
+            });
+        }
+    }
+
+}
 
 interface InnerNodeProps {
     inner: InnerNode;
@@ -73,23 +114,45 @@ interface InnerNodeProps {
     onShowChildrenButtonClick: () => void;
 }
 
-const InnerNode = (props: InnerNodeProps): JSX.Element => {
-    const {inner, isChildrenShow, onShowChildrenButtonClick} = props;
+class InnerNode extends React.PureComponent<InnerNodeProps> {
+    constructor(props: InnerNodeProps) {
+        super(props);
+    }
 
-    return (
-        <div className="inner-tree" key={inner.name}>
-            <div className="inner-node">
-                <input className="node-name" type="button" value={isChildrenShow ? "-" : "+"} onClick={onShowChildrenButtonClick}/>
-                <input className="node-name" value={inner.name} readOnly={true}/>
-                <NodeViewModel nodeViewModel={inner.viewModel}/>
+    render() {
+        const {inner, isChildrenShow, onShowChildrenButtonClick} = this.props;
+
+        return (
+            <div className="inner-tree" key={inner.name}>
+                <div className="inner-node">
+                    <input className="node-name" type="button" value={isChildrenShow ? "-" : "+"}
+                           onClick={onShowChildrenButtonClick}/>
+                    <input className="node-name" value={inner.name} readOnly={true}/>
+                    <div className="view-model">
+                        {this._renderViewModel(inner.viewModel)}
+                    </div>
+                </div>
+                {isChildrenShow
+                    ? inner.children.map((child) => <InnerNode key={child.name} inner={child} isChildrenShow={false}
+                                                               onShowChildrenButtonClick={onShowChildrenButtonClick}/>)
+                    : ``
+                }
             </div>
-            {isChildrenShow
-                ? inner.children.map((child) => <InnerNode key={child.name} inner={child} isChildrenShow={false} onShowChildrenButtonClick={onShowChildrenButtonClick}/>)
-                : ``
-            }
-        </div>
-    )
-};
+        )
+    }
+
+    _renderViewModel = (viewModel: NodeViewModel) => {
+        const viewModelItems = Object.keys(viewModel);
+        return (
+            viewModelItems.map((item) => {
+                return (
+                    <NodeViewModel itemName={item} itemDescription={viewModel[item]}/>
+                )
+            })
+        )
+    }
+}
+
 
 interface InnerTreeProps {
     inner: InnerNode;
@@ -115,7 +178,8 @@ class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeState> {
 
         return (
             <div className="inner-tree">
-                <InnerNode key={inner.name} inner={inner} isChildrenShow={isChildrenShow} onShowChildrenButtonClick={this._showChildren}/>
+                <InnerNode key={inner.name} inner={inner} isChildrenShow={isChildrenShow}
+                           onShowChildrenButtonClick={this._showChildren}/>
             </div>
         )
     }
@@ -159,6 +223,10 @@ const testInner: InnerNode = {
 
 export const InnerTreeComponent = (): JSX.Element => <InnerTree inner={testInner}/>;
 
-export const InnerNodeWithChildrenComponent = (): JSX.Element => <InnerNode inner={testInner} isChildrenShow={true} onShowChildrenButtonClick={action("onShowChildrenButtonClick")}/>;
+export const InnerNodeWithChildrenComponent = (): JSX.Element => <InnerNode inner={testInner} isChildrenShow={true}
+                                                                            onShowChildrenButtonClick={action("onShowChildrenButtonClick")}/>;
 
-export const InnerNodeWithoutChildrenComponent = (): JSX.Element => <InnerNode inner={testInner} isChildrenShow={false} onShowChildrenButtonClick={action("onShowChildrenButtonClick")}/>;
+export const InnerNodeWithoutChildrenComponent = (): JSX.Element => <InnerNode inner={testInner} isChildrenShow={false}
+                                                                               onShowChildrenButtonClick={action("onShowChildrenButtonClick")}/>;
+
+export const NodeViewModelComponent = (): JSX.Element => <NodeViewModel itemName="itemName" itemDescription="ItemDescription"/>;
