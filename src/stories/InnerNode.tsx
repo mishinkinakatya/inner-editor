@@ -1,23 +1,19 @@
 import * as React from "react";
-import {NodeViewModel, NodeViewModelItem} from "./InnerViewModel";
+import {InnerNodeViewModel} from "./InnerNodeViewModel";
+import {InnerNodeItem} from "./InnerNodeViewModelItem";
 
-export interface InnerNode {
-    name: string;
-    children: InnerNode[];
-    viewModel: NodeViewModel;
+
+export interface InnerNodeItemProps {
+    inner: InnerNodeItem;
 }
 
-export interface InnerNodeProps {
-    inner: InnerNode;
-}
-
-export interface InnerNodeState {
+export interface InnerNodeItemState {
     isChildrenShow: boolean;
     isPropertiesShow: boolean;
 }
 
-export class InnerNodeItem extends React.PureComponent<InnerNodeProps, InnerNodeState> {
-    constructor(props: InnerNodeProps) {
+export class InnerNode extends React.PureComponent<InnerNodeItemProps, InnerNodeItemState> {
+    constructor(props: InnerNodeItemProps) {
         super(props);
 
         this.state = {
@@ -33,36 +29,25 @@ export class InnerNodeItem extends React.PureComponent<InnerNodeProps, InnerNode
         return (
             <div className="inner-tree" key={inner.name}>
                 <div className="inner-node">
-                    <input className="node-name" type="button" value={isChildrenShow ? "▽" : "▷"}
+                    <input className="node-name" type="button"
+                           value={isChildrenShow || inner.children.length === 0 ? "▽" : "▷"}
                            onClick={this._handleShowChildren}/>
                     <input className="node-name" value={inner.name} readOnly={true}/>
                     {isPropertiesShow
-                        ? <div className="view-model">
-                            {this._renderViewModel(inner.viewModel)}
-                        </div>
+                        ? <InnerNodeViewModel nodeViewModel={inner.viewModel}/>
                         : <div className="view-model">
                             <input type="button" value="👁‍" onClick={this._handleShowProperties}/>
                         </div>
                     }
                 </div>
                 {isChildrenShow
-                    ? inner.children.map((child) => <InnerNodeItem key={child.name} inner={child}/>)
+                    ? inner.children.map((child) => <InnerNode key={child.name} inner={child}/>)
                     : ``
                 }
             </div>
         )
     }
 
-    _renderViewModel = (viewModel: NodeViewModel) => {
-        const viewModelItems = Object.keys(viewModel);
-        return (
-            viewModelItems.map((item) => {
-                return (
-                    <NodeViewModelItem itemName={item} itemDescription={viewModel[item]}/>
-                )
-            })
-        )
-    }
 
     _handleShowChildren = () => {
         this.setState({

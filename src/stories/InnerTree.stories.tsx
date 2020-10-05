@@ -3,21 +3,20 @@ import './inner-tree.css';
 
 import {Meta} from '@storybook/react/types-6-0';
 import {action} from "@storybook/addon-actions";
+import {InnerNodeItem, NodeViewModel} from "./InnerNodeViewModelItem";
 import {InnerTree} from "./InnerTree";
-import {InnerNode} from "./InnerNode";
-import {NodeViewModel, NodeViewModelItem} from "./InnerViewModel";
 
 export default {title: 'Inner Editor/InnerTree'} as Meta;
 
 
-type Inner = { [path: string]: NodeViewModel }
+// type Inner = { [path: string]: NodeViewModel }
+//
+// function convertInnerToInnerNode(inner: Inner): NodeViewModel {
+//     return;
+// }
 
-function convertInnerToInnerNode(inner: Inner): NodeViewModel {
-    return;
-}
 
-
-const testInner: InnerNode = {
+const testInner: InnerNodeItem = {
     name: "First",
     viewModel: {
         value: "FirstValue",

@@ -1,5 +1,16 @@
 import * as React from "react";
 
+
+export interface InnerTreeProps {
+    inner: InnerNodeItem;
+}
+
+export interface InnerNodeItem {
+    name: string;
+    children: InnerNodeItem[];
+    viewModel: NodeViewModel;
+}
+
 export interface NodeViewModel {
     value?: string;
     error?: string[];
@@ -11,18 +22,19 @@ export enum NodeViewModelMode {
     Edit
 }
 
-export interface NodeViewModelProps {
+
+export interface InnerNodeViewModelItemProps {
     itemName: string;
-    itemDescription: string | []
+    itemDescription: string | string[]
 }
 
-export interface NodeViewModelState {
+export interface InnerNodeViewModelItemState {
     currentMode: NodeViewModelMode,
     currentDescription: string | string[]
 }
 
-export class NodeViewModelItem extends React.PureComponent<NodeViewModelProps, NodeViewModelState> {
-    constructor(props: NodeViewModelProps) {
+export class InnerNodeViewModelItem extends React.PureComponent<InnerNodeViewModelItemProps, InnerNodeViewModelItemState> {
+    constructor(props: InnerNodeViewModelItemProps) {
         super(props);
 
         this.state = {

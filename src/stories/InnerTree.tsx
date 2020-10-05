@@ -1,16 +1,13 @@
 import * as React from "react";
-import {InnerNode, InnerNodeItem} from "./InnerNode";
-
-export interface InnerTreeProps {
-    inner: InnerNode;
-}
+import {InnerNode} from "./InnerNode";
+import {InnerTreeProps} from "./InnerNodeViewModelItem";
 
 export const InnerTree = (props: InnerTreeProps) => {
     const {inner} = props;
 
     return (
         <div className="inner-tree">
-            <InnerNodeItem key={inner.name} inner={inner}/>
+            <InnerNode key={inner.name} inner={inner}/>
         </div>
     )
 }
