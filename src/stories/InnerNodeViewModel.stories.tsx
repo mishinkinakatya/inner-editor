@@ -1,10 +1,9 @@
 import * as React from 'react';
-import './inner-tree.css';
+import '../styles/inner-tree.css';
 
 import {Meta} from '@storybook/react/types-6-0';
-import {action} from "@storybook/addon-actions";
-import {InnerNodeItem, InnerNodeViewModelItem, NodeViewModel} from "./InnerNodeViewModelItem";
-import {InnerNodeViewModel} from "./InnerNodeViewModel";
+import {InnerNodeViewModel} from "../components/InnerNodeViewModel";
+import {NodeViewModel} from "../components/inner-editor";
 
 export default {title: 'Inner Editor/InnerNodeViewModel'} as Meta;
 

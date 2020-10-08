@@ -1,10 +1,10 @@
 import * as React from 'react';
-import './inner-tree.css';
+import '../styles/inner-tree.css';
 
 import {Meta} from '@storybook/react/types-6-0';
 import {action} from "@storybook/addon-actions";
-import {InnerTree} from "./InnerTree";
-import {InnerNodeItem} from "./inner-editor";
+import {InnerTree} from "../components/InnerTree";
+import {InnerNodeItem} from "../components/inner-editor";
 
 export default {title: 'Inner Editor/InnerTree'} as Meta;
 

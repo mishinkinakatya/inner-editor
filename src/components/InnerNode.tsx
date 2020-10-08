@@ -30,7 +30,7 @@ export class InnerNode extends React.PureComponent<InnerNodeItemProps, InnerNode
             <div className="inner-tree" key={inner.name}>
                 <div className="inner-node">
                     <input className="node-name" type="button"
-                           value={isChildrenShow || inner.children.length === 0 ? "▽" : "▷"}
+                           value={isChildrenShow || (inner.children && inner.children.length === 0) ? "▽" : "▷"}
                            onClick={this._handleShowChildren}/>
                     <input className="node-name" value={inner.name} readOnly={true}/>
                     {isPropertiesShow
@@ -40,7 +40,7 @@ export class InnerNode extends React.PureComponent<InnerNodeItemProps, InnerNode
                         </div>
                     }
                 </div>
-                {isChildrenShow
+                {isChildrenShow && inner.children
                     ? inner.children.map((child) => <InnerNode key={child.name} inner={child}/>)
                     : ``
                 }

@@ -1,9 +1,11 @@
 const path = require(`path`)
 
 module.exports = {
-    entry: `./src/index`,
+    mode: "development",
+    devtool: "source-map",
+    entry: "./src/index",
     output: {
-        filename: `bundle.js`
+        filename: "bundle.js"
     },
     module: {
         rules: [

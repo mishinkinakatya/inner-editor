@@ -1,5 +1,5 @@
 import {expect} from "chai";
-import {InnerNodeItem, NodeViewModel} from "../src/stories/inner-editor";
+import {InnerNodeItem, NodeViewModel} from "../src/components/inner-editor";
 
 type Inner = { [path: string]: NodeViewModel }
 
