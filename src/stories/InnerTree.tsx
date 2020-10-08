@@ -1,6 +1,11 @@
 import * as React from "react";
 import {InnerNode} from "./InnerNode";
-import {InnerTreeProps} from "./InnerNodeViewModelItem";
+import {InnerNodeItem} from "./inner-editor";
+
+
+export interface InnerTreeProps {
+    inner: InnerNodeItem;
+}
 
 export const InnerTree = (props: InnerTreeProps) => {
     const {inner} = props;

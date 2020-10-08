@@ -1,6 +1,6 @@
 import * as React from "react";
 import {InnerNodeViewModel} from "./InnerNodeViewModel";
-import {InnerNodeItem} from "./InnerNodeViewModelItem";
+import {InnerNodeItem} from "./inner-editor";
 
 
 export interface InnerNodeItemProps {

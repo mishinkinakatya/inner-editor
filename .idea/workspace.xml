@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:create-editor" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="" />
+    <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/InnerNode.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/InnerNodeViewModel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/InnerNodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/InnerNodeViewModelItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/InnerTree.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/InnerTree.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/InnerTree.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1i8bE7OpbNYLOqHInXQkLVGEbsn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -15,10 +58,98 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\mishinkina\Desktop\JS\inner-editor\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Mocha.Find Head Node.Throw error if there are two head nodes">
+    <configuration name="Create Inner Node" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>SUITE</test-kind>
+      <test-file>$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts</test-file>
+      <test-names>
+        <name value="Create Inner Node" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Find Head Node.Throw error if there are two head nodes" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts</test-file>
+      <test-names>
+        <name value="Find Head Node" />
+        <name value="Throw error if there are two head nodes" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Inner adapter.Convert Inner To Inner Node" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts</test-file>
+      <test-names>
+        <name value="Inner adapter" />
+        <name value="Convert Inner To Inner Node" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Inner adapter.Throw error if there are two head nodes" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts</test-file>
+      <test-names>
+        <name value="Inner adapter" />
+        <name value="Throw error if there are two head nodes" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="test\convertInnerToInnerNode.test.ts" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST_FILE</test-kind>
+      <test-file>$PROJECT_DIR$/test/convertInnerToInnerNode.test.ts</test-file>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Mocha.Find Head Node.Throw error if there are two head nodes" />
+        <item itemvalue="Mocha.Inner adapter.Throw error if there are two head nodes" />
+        <item itemvalue="Mocha.Inner adapter.Convert Inner To Inner Node" />
+        <item itemvalue="Mocha.Create Inner Node" />
+        <item itemvalue="Mocha.test\convertInnerToInnerNode.test.ts" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -29,10 +160,126 @@
       <option name="presentableId" value="Default" />
       <updated>1601292051485</updated>
       <workItem from="1601292052578" duration="8544000" />
+      <workItem from="1602133914083" duration="926000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="create-editor" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-376" y="303" width="1736" height="737" maximized="true" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1602133415272">
+      <screen x="0" y="0" width="1280" height="688" />
+    </state>
+    <state x="-1895" y="-21" width="2577" height="737" maximized="true" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602097787920" />
+    <state x="-376" y="303" width="1736" height="737" maximized="true" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133415272" />
+    <state width="535" height="466" key="DebuggerActiveHint" timestamp="1602009938563">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="535" height="466" key="DebuggerActiveHint/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602009938563" />
+    <state width="657" height="625" key="GridCell.Tab.0.bottom" timestamp="1602134711709">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="537" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602097084024" />
+    <state width="657" height="625" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602134711709" />
+    <state width="657" height="625" key="GridCell.Tab.0.center" timestamp="1602134711709">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="537" height="922" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602097084024" />
+    <state width="657" height="625" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602134711709" />
+    <state width="657" height="625" key="GridCell.Tab.0.left" timestamp="1602134711709">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="537" height="922" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602097084024" />
+    <state width="657" height="625" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602134711709" />
+    <state width="657" height="625" key="GridCell.Tab.0.right" timestamp="1602134711709">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="537" height="922" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602097084024" />
+    <state width="657" height="625" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602134711709" />
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.1.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.1.center" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.1.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.1.left" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772175" />
+    <state width="1877" height="269" key="GridCell.Tab.1.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.1.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.2.bottom" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.2.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.2.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.2.center" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.2.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.2.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.2.left" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.2.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.2.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.2.right" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.2.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.2.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.3.bottom" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.3.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.3.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.3.center" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.3.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.3.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.3.left" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.3.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.3.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
+    <state width="1877" height="269" key="GridCell.Tab.3.right" timestamp="1602133886455">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="269" key="GridCell.Tab.3.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602044772176" />
+    <state width="1877" height="269" key="GridCell.Tab.3.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602133886455" />
   </component>
 </project>
