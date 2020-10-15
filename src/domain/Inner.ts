@@ -4,8 +4,8 @@ export interface Inner {
 
 export interface InnerNodeItem {
     name: string;
-    children?: InnerNodeItem[];
-    viewModel?: NodeViewModel | undefined;
+    children: InnerNodeItem[];
+    viewModel: NodeViewModel | undefined;
 }
 
 export interface NodeViewModel {

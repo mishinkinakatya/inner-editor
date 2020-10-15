@@ -101,7 +101,7 @@ describe("Inner adapter", () => {
                                             }
                                         ],
                                         "name": "Д1",
-                                        "viewModel": []
+                                        "viewModel": undefined
                                     },
                                     {
                                         "children": [
@@ -116,15 +116,15 @@ describe("Inner adapter", () => {
                                             }
                                         ],
                                         "name": "Д2",
-                                        "viewModel": []
+                                        "viewModel": undefined
                                     }
                                 ],
                                 "name": "С3",
-                                "viewModel": []
+                                "viewModel": undefined
                             }
                         ],
                         "name": "Б1",
-                        "viewModel": []
+                        "viewModel": undefined
                     },
                     {
                         "children": [
@@ -137,11 +137,11 @@ describe("Inner adapter", () => {
                             }
                         ],
                         "name": "Б2",
-                        "viewModel": []
+                        "viewModel": undefined
                     }
                 ],
                 "name": "А1",
-                "viewModel": []
+                "viewModel": undefined
             }
         )
     });
@@ -169,7 +169,7 @@ describe("Inner adapter", () => {
                                     }
                                 ],
                                 "name": "0",
-                                "viewModel": []
+                                "viewModel": undefined
                             },
                             {
                                 "children": [
@@ -184,15 +184,15 @@ describe("Inner adapter", () => {
                                     }
                                 ],
                                 "name": "1",
-                                "viewModel": []
+                                "viewModel": undefined
                             }
                         ],
                         "name": "Б1",
-                        "viewModel": []
+                        "viewModel": undefined
                     }
                 ],
                 "name": "А1",
-                "viewModel": []
+                "viewModel": undefined
             })
     })
     it('Convert Real Inner To Inner Node', () => {
@@ -213,7 +213,7 @@ describe("Inner adapter", () => {
                                     }
                                 ],
                                 "name": "0",
-                                "viewModel": []
+                                "viewModel": undefined
                             }
                         ],
                         "name": "Items",
@@ -243,7 +243,7 @@ describe("Inner adapter", () => {
                                                     }
                                                 ],
                                                 "name": "0",
-                                                "viewModel": []
+                                                "viewModel": undefined
                                             }
                                         ],
                                         "name": "NestedItems",
@@ -255,7 +255,7 @@ describe("Inner adapter", () => {
                                     }
                                 ],
                                 "name": "0",
-                                "viewModel": []
+                                "viewModel": undefined
                             }
                         ],
                         "name": "ItemsWithNesting",

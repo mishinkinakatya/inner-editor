@@ -31,7 +31,7 @@ export function convertInnerToInnerNode(inputInner: Inner): InnerNodeItem {
                     fullPath,
                     paths.map(skipFirstSegment).filter(x => !isEmptyPath(x)),
                 ),
-                viewModel: inputInner[fullPath.join("/")] || [],
+                viewModel: inputInner[fullPath.join("/")],
             };
         });
     };
