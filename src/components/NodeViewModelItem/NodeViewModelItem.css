@@ -1,0 +1,11 @@
+.viewModelItem {
+    margin: 5px;
+}
+
+.propertyName {
+    font-weight: bold;
+}
+.propertyValue {
+    font: 16px Arial sans-serif;
+    width: auto;
+}
