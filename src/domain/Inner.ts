@@ -9,5 +9,5 @@ export interface InnerNodeItem {
 }
 
 export interface NodeViewModel {
-    [key: string]: string | string[];
+    [key: string]: number | string | string[];
 }

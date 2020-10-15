@@ -1,10 +1,6 @@
 import {expect} from "chai";
 import {Inner} from "../src/domain/Inner";
-import {
-    convertInnerToInnerNode,
-    createInnerNode,
-    Paths
-} from "../src/domain/ConverInnerToInnerNode";
+import {convertInnerToInnerNode} from "../src/domain/ConverInnerToInnerNode";
 
 
 const inputTestInner: Inner = {
@@ -82,58 +78,70 @@ describe("Inner adapter", () => {
     it('Convert Inner To Inner Node', () => {
         expect(convertInnerToInnerNode(inputTestInner)).to.deep.equal(
             {
-                name: "А1",
-                children: [
+                "children": [
                     {
-                        name: "Б1",
-                        children: [
+                        "children": [
                             {
-                                name: "С1",
-                                viewModel: {
-                                    value: "0710099"
+                                "children": [],
+                                "name": "С1",
+                                "viewModel": {
+                                    "value": "0710099"
                                 }
                             },
                             {
-                                name: "С3",
-                                children: [
+                                "children": [
                                     {
-                                        name: "Д1",
-                                        children: [
+                                        "children": [
                                             {
-                                                name: "Е1",
-                                                viewModel: {
+                                                "children": [],
+                                                "name": "Е1",
+                                                "viewModel": {
                                                     "children": []
                                                 }
                                             }
-                                        ]
+                                        ],
+                                        "name": "Д1",
+                                        "viewModel": []
                                     },
                                     {
-                                        name: "Д2",
-                                        children: [
+                                        "children": [
                                             {
-                                                name: "Ж1",
-                                                viewModel: {
-                                                    "error": ["Error Ж1"]
+                                                "children": [],
+                                                "name": "Ж1",
+                                                "viewModel": {
+                                                    "error": [
+                                                        "Error Ж1"
+                                                    ]
                                                 }
                                             }
-                                        ]
-                                    },
-                                ]
-                            },
-                        ]
+                                        ],
+                                        "name": "Д2",
+                                        "viewModel": []
+                                    }
+                                ],
+                                "name": "С3",
+                                "viewModel": []
+                            }
+                        ],
+                        "name": "Б1",
+                        "viewModel": []
                     },
                     {
-                        name: "Б2",
-                        children: [
+                        "children": [
                             {
-                                name: "С2",
-                                viewModel: {
-                                    value: ""
+                                "children": [],
+                                "name": "С2",
+                                "viewModel": {
+                                    "value": ""
                                 }
-                            },
-                        ]
+                            }
+                        ],
+                        "name": "Б2",
+                        "viewModel": []
                     }
                 ],
+                "name": "А1",
+                "viewModel": []
             }
         )
     });
@@ -144,6 +152,7 @@ describe("Inner adapter", () => {
                     {
                         "children": [
                             {
+                                "children": [],
                                 "name": "С1",
                                 "viewModel": {
                                     "value": "0710099"
@@ -152,17 +161,20 @@ describe("Inner adapter", () => {
                             {
                                 "children": [
                                     {
+                                        "children": [],
                                         "name": "С2",
                                         "viewModel": {
                                             "value": ""
                                         }
                                     }
                                 ],
-                                "name": "0"
+                                "name": "0",
+                                "viewModel": []
                             },
                             {
                                 "children": [
                                     {
+                                        "children": [],
                                         "name": "С2",
                                         "viewModel": {
                                             "error": [
@@ -171,13 +183,16 @@ describe("Inner adapter", () => {
                                         }
                                     }
                                 ],
-                                "name": "1"
+                                "name": "1",
+                                "viewModel": []
                             }
                         ],
-                        "name": "Б1"
+                        "name": "Б1",
+                        "viewModel": []
                     }
                 ],
-                "name": "А1"
+                "name": "А1",
+                "viewModel": []
             })
     })
     it('Convert Real Inner To Inner Node', () => {
@@ -189,6 +204,7 @@ describe("Inner adapter", () => {
                             {
                                 "children": [
                                     {
+                                        "children": [],
                                         "name": "Value",
                                         "viewModel": {
                                             "error": [],
@@ -196,7 +212,8 @@ describe("Inner adapter", () => {
                                         }
                                     }
                                 ],
-                                "name": "0"
+                                "name": "0",
+                                "viewModel": []
                             }
                         ],
                         "name": "Items",
@@ -215,6 +232,7 @@ describe("Inner adapter", () => {
                                             {
                                                 "children": [
                                                     {
+                                                        "children": [],
                                                         "name": "Value",
                                                         "viewModel": {
                                                             "error": [
@@ -224,7 +242,8 @@ describe("Inner adapter", () => {
                                                         }
                                                     }
                                                 ],
-                                                "name": "0"
+                                                "name": "0",
+                                                "viewModel": []
                                             }
                                         ],
                                         "name": "NestedItems",
@@ -235,7 +254,8 @@ describe("Inner adapter", () => {
                                         }
                                     }
                                 ],
-                                "name": "0"
+                                "name": "0",
+                                "viewModel": []
                             }
                         ],
                         "name": "ItemsWithNesting",
@@ -257,14 +277,4 @@ describe("Inner adapter", () => {
     });
 });
 
-describe("Create Inner Node", () => {
-    it("CreateInnerNode", () => {
-        expect(createInnerNode("С2", undefined,  { "value": "" })).to.deep.equal(
-            {
-                name: "С2",
-                viewModel: {
-                    "value": ""
-                },
-            })
-    });
-});
+

@@ -1,35 +1,44 @@
-import { Inner, InnerNodeItem, NodeViewModel } from "./Inner";
+import { Inner, InnerNodeItem } from "./Inner";
 
-type Path = string[];
+type PathSegment = string;
+
+type Path = PathSegment[];
 
 export type Paths = Path[];
 
+function getFirstSegment(x: PathSegment[]) {
+    return x[0];
+}
+
+function skipFirstSegment(path: PathSegment[]) {
+    const [prefix, ...restPath] = path;
+    return restPath;
+}
+
+function isEmptyPath(x: PathSegment[]) {
+    return x.length === 0;
+}
+
 export function convertInnerToInnerNode(inputInner: Inner): InnerNodeItem {
-    const setOfSplittingPaths = Object.keys(inputInner).map(x => x.split("/"));
+    const getInnerNodes = (parentPath: Path, childPaths: Paths): InnerNodeItem[] => {
+        const grouped = groupBy(childPaths, x => getFirstSegment(x));
+        return [...grouped.entries()].map(([segment, paths]) => {
+            const fullPath = [...parentPath, segment];
 
-    const getInnerNodes = (parentPath: string | undefined, currentSetOfPaths: Paths): InnerNodeItem[] => {
-        const namesOfChildOfCurrentNode = Array.from(new Set(currentSetOfPaths.slice().map(x => x[0])));
-
-        const childNodes: InnerNodeItem[] = namesOfChildOfCurrentNode.slice().map(childNode => {
-            const childNodesOfCurrentChild = currentSetOfPaths
-                .filter(x => x[0] === childNode)
-                .map(path => {
-                    const [prefix, ...restPath] = path;
-                    return restPath;
-                })
-                .filter(x => x.length > 0);
-
-            const fullPath = parentPath ? parentPath.concat("/").concat(childNode) : "/".concat(childNode);
-            const viewModel =
-                inputInner[fullPath.substring(1)] != undefined ? inputInner[fullPath.substring(1)] : undefined;
-
-            return createInnerNode(childNode, getInnerNodes(fullPath, childNodesOfCurrentChild), viewModel);
+            return {
+                name: segment,
+                children: getInnerNodes(
+                    fullPath,
+                    paths.map(skipFirstSegment).filter(x => !isEmptyPath(x)),
+                ),
+                viewModel: inputInner[fullPath.join("/")] || [],
+            };
         });
-
-        return childNodes;
     };
 
-    const innerNode = getInnerNodes(undefined, setOfSplittingPaths);
+    const allPaths = Object.keys(inputInner).map(x => x.split("/"));
+
+    const innerNode = getInnerNodes([], allPaths);
 
     if (innerNode.length > 1) {
         throw new Error("Too more head nodes");
@@ -38,22 +47,17 @@ export function convertInnerToInnerNode(inputInner: Inner): InnerNodeItem {
     }
 }
 
-export function createInnerNode(
-    name: string,
-    children: InnerNodeItem[] | undefined,
-    viewModel: NodeViewModel | undefined,
-): InnerNodeItem {
-    const innerNode: InnerNodeItem = {
-        name,
-    };
-
-    if (children && children.length > 0) {
-        innerNode.children = children;
+function groupBy<T>(items: T[], selector: (item: T) => string): Map<string, T[]> {
+    const result = new Map<string, T[]>();
+    for (const item of items) {
+        const groupKey = selector(item);
+        if (result.has(groupKey)) {
+            result.get(groupKey)?.push(item);
+        } else {
+            result.set(groupKey, []);
+            result.get(groupKey)?.push(item);
+        }
     }
 
-    if (viewModel) {
-        innerNode.viewModel = viewModel;
-    }
-
-    return innerNode;
+    return result;
 }
