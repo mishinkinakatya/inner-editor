@@ -27,6 +27,7 @@ export function convertInnerToInnerNode(inputInner: Inner): InnerNodeItem {
 
             return {
                 name: segment,
+                fullPath: fullPath.join("/"),
                 children: getInnerNodes(
                     fullPath,
                     paths.map(skipFirstSegment).filter(x => !isEmptyPath(x)),

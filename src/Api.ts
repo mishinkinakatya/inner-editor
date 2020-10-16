@@ -6,7 +6,14 @@ interface RequestParameters {
     body?: string | undefined;
     headers?: Headers;
 }
-const COMMON_URL = "";
+
+export interface ApiModel {
+    changeInnerNode: (changes: {}) => void;
+    getInner: () => InnerNodeItem;
+}
+
+const COMMON_URL =
+    "http://localhost.testkontur.ru:11090/v1/ns/00000000-0000-0000-0000-000000000000/drafts/4950a505-99a7-4f34-b3c0-7653206accc8";
 
 const Method = {
     GET: "GET",
@@ -27,22 +34,31 @@ function checkStatus(response: Response) {
 class Api {
     public async getInner() {
         let response = await this.load({
-            baseUrl: `${COMMON_URL}`,
+            baseUrl: `${COMMON_URL}/get-inner`,
             method: Method.POST,
         });
-
+        // let response = await this.load({
+        //     baseUrl: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
+        //     method: Method.POST,
+        //     body: JSON.stringify({
+        //         added: [],
+        //         changed: {},
+        //         removed: ["Root/ItemsWithNesting.children"],
+        //     }),
+        //     headers: new Headers({ "Content-Type": `application/json` }),
+        // });
         return response.json();
     }
 
     public async changeInnerNode(changedInnerNode: InnerNodeItem) {
         let response = await this.load({
-            baseUrl: `${COMMON_URL}`,
+            baseUrl: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
             method: Method.POST,
             body: JSON.stringify(changedInnerNode),
             headers: new Headers({ "Content-Type": `application/json` }),
         });
 
-        return response.json();
+        return response;
     }
 
     // public async deleteInnerNode() {}

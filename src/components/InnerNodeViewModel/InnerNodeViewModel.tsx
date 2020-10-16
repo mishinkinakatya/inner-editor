@@ -1,10 +1,14 @@
 import * as React from "react";
 import { NodeViewModelItem } from "../NodeViewModelItem/NodeViewModelItem";
-import { NodeViewModel } from "../../domain/Inner";
+import { InnerNodeItem, NodeViewModel } from "../../domain/Inner";
 import styles from "./InnerNodeViewModel.css";
+import { ApiModel } from "../../Api";
 
 interface InnerNodeViewModelProps {
     nodeViewModel: NodeViewModel;
+    fullPath: string;
+    api: ApiModel;
+    onChangeInner: () => void;
 }
 
 interface InnerNodeViewModelState {
@@ -19,7 +23,7 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
     };
 
     public render() {
-        const { nodeViewModel } = this.props;
+        const { nodeViewModel, fullPath, api, onChangeInner } = this.props;
         const { areViewModelVisible } = this.state;
 
         return areViewModelVisible ? (
@@ -34,9 +38,11 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
                     {Object.keys(nodeViewModel).map(item => (
                         <NodeViewModelItem
                             key={item}
+                            api={api}
                             itemName={item}
+                            fullPath={fullPath}
                             itemDescription={nodeViewModel[item]}
-                            onChangeViewModel={this.handleChangeViewModel}
+                            onChangeInner={onChangeInner}
                         />
                     ))}
                 </div>
@@ -50,8 +56,6 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
             />
         );
     }
-
-    private handleChangeViewModel = () => {};
 
     private readonly handleChangeVisibleOfViewModel = () => {
         this.setState({

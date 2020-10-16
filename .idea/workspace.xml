@@ -29,18 +29,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/CreateChangeSet.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/Inner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Inner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,19 +80,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\domain" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModelItem" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNode" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNode" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\stories" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\domain" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModelItem" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNode" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
     </key>
   </component>
   <component name="RunManager" selected="Mocha.Inner adapter.Convert Inner To Inner Node">
@@ -247,29 +247,29 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="535" height="466" key="DebuggerActiveHint/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602009938563" />
-    <state width="398" height="561" key="GridCell.Tab.0.bottom" timestamp="1602732657698">
-      <screen x="0" y="0" width="1280" height="688" />
+    <state width="650" height="922" key="GridCell.Tab.0.bottom" timestamp="1602840330844">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="71" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="978" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602679270369" />
+    <state width="650" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
     <state width="398" height="561" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1602732657698" />
-    <state width="398" height="561" key="GridCell.Tab.0.center" timestamp="1602732657697">
-      <screen x="0" y="0" width="1280" height="688" />
+    <state width="650" height="922" key="GridCell.Tab.0.center" timestamp="1602840330844">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="71" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="978" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602679270369" />
+    <state width="650" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
     <state width="398" height="561" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1602732657697" />
-    <state width="398" height="561" key="GridCell.Tab.0.left" timestamp="1602732657697">
-      <screen x="0" y="0" width="1280" height="688" />
+    <state width="650" height="922" key="GridCell.Tab.0.left" timestamp="1602840330843">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="71" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="978" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602679270369" />
+    <state width="650" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330843" />
     <state width="398" height="561" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1602732657697" />
-    <state width="398" height="561" key="GridCell.Tab.0.right" timestamp="1602732657698">
-      <screen x="0" y="0" width="1280" height="688" />
+    <state width="650" height="922" key="GridCell.Tab.0.right" timestamp="1602840330844">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="71" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="978" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602679270369" />
+    <state width="650" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
     <state width="398" height="561" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1602732657698" />
     <state width="1237" height="33" key="GridCell.Tab.1.bottom" timestamp="1602732239166">
       <screen x="0" y="0" width="1280" height="688" />

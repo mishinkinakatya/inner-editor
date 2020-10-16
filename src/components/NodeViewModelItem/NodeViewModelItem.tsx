@@ -1,5 +1,7 @@
 import * as React from "react";
 import styles from "./NodeViewModelItem.css";
+import { ApiModel } from "../../Api";
+import { InnerNodeItem, PropertyDescription } from "../../domain/Inner";
 
 enum NodeViewModelMode {
     Read,
@@ -8,13 +10,15 @@ enum NodeViewModelMode {
 
 interface NodeViewModelItemProps {
     itemName: string;
-    itemDescription: string | string[];
-    onChangeViewModel: () => void;
+    itemDescription: PropertyDescription;
+    fullPath: string;
+    api: ApiModel;
+    onChangeInner: () => void;
 }
 
 interface NodeViewModelItemState {
     currentMode: NodeViewModelMode;
-    currentDescription: string | string[];
+    currentDescription: PropertyDescription;
 }
 
 export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProps, NodeViewModelItemState> {
@@ -24,7 +28,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
     };
 
     public render() {
-        const { itemName, itemDescription } = this.props;
+        const { itemName } = this.props;
         const { currentMode, currentDescription } = this.state;
 
         return (
@@ -32,7 +36,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
                 <span className={styles.propertyName}>{itemName}: </span>
                 {currentMode === NodeViewModelMode.Read ? (
                     <div>
-                        <input className={styles.propertyValue} value={itemDescription} disabled={true} />
+                        <input className={styles.propertyValue} value={currentDescription} disabled={true} />
                         <input type="button" value="✏" onClick={this.handleEditButtonClick} />
                     </div>
                 ) : (
@@ -64,28 +68,43 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
     };
 
     private readonly handleSaveButtonClick = () => {
-        const { onChangeViewModel } = this.props;
+        const { fullPath, itemName, api, onChangeInner } = this.props;
+        const { currentDescription } = this.state;
 
-        const newDescription = this.state.currentDescription;
-
-        if (newDescription != undefined) {
+        const changeState = () => {
             this.setState({
                 currentMode: NodeViewModelMode.Read,
-                currentDescription: newDescription,
+                currentDescription,
+            });
+        };
+
+        async function changeInner() {
+            await api.changeInnerNode({
+                added: [],
+                changed: {
+                    [fullPath.concat(".").concat(itemName)]: currentDescription,
+                },
+                removed: [],
             });
         }
 
-        onChangeViewModel();
+        if (currentDescription != undefined) {
+            (async function () {
+                try {
+                    await changeInner();
+                    await onChangeInner();
+                    changeState();
+                } catch (err) {
+                    console.error(err);
+                }
+            })();
+        }
     };
 
     private readonly handleCancelButtonClick = () => {
-        const { onChangeViewModel } = this.props;
-
         this.setState({
             currentMode: NodeViewModelMode.Read,
             currentDescription: this.props.itemDescription,
         });
-
-        onChangeViewModel();
     };
 }
