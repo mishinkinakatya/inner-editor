@@ -1,11 +1,11 @@
 import * as React from "react";
-import { NodeViewModelItem } from "../NodeViewModelItem/NodeViewModelItem";
-import { NodeViewModel, PropertyDescription } from "../../domain/Inner";
+import { NodeViewModelItem, ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
+import { NodeViewModel } from "../../domain/Inner";
 import styles from "./InnerNodeViewModel.css";
 
 interface InnerNodeViewModelProps {
     nodeViewModel: NodeViewModel;
-    onChangeViewModel: (changeType: string, itemName: string, itemDescription?: PropertyDescription) => void;
+    onChangeViewModel({ changeType, itemName, itemDescription }: ViewModelChanges): void;
 }
 
 interface InnerNodeViewModelState {
@@ -56,12 +56,8 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
         });
     };
 
-    private readonly handleChangeViewModelItem = (
-        changeType: string,
-        itemName: string,
-        itemDescription?: PropertyDescription,
-    ) => {
+    private readonly handleChangeViewModelItem = ({ changeType, itemName, itemDescription }: ViewModelChanges) => {
         const { onChangeViewModel } = this.props;
-        onChangeViewModel(changeType, itemName, itemDescription);
+        onChangeViewModel({ changeType, itemName, itemDescription });
     };
 }

@@ -8,10 +8,16 @@ enum NodeViewModelMode {
     Edit,
 }
 
+export interface ViewModelChanges {
+    changeType: string;
+    itemName: string;
+    itemDescription?: PropertyDescription;
+}
+
 interface NodeViewModelItemProps {
     itemName: string;
     itemDescription: PropertyDescription;
-    onChangeViewModelItem: (changeType: string, itemName: string, itemDescription?: PropertyDescription) => void;
+    onChangeViewModelItem({ changeType, itemName, itemDescription }: ViewModelChanges): void;
 }
 
 interface NodeViewModelItemState {
@@ -74,10 +80,14 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
     };
 
     private readonly handleSaveButtonClick = () => {
-        const { itemName, onChangeViewModelItem } = this.props;
-        const { currentDescription } = this.state;
+        const { onChangeViewModelItem } = this.props;
+        const { currentItemName, currentDescription } = this.state;
 
-        onChangeViewModelItem(ChangeType.CHANGED, itemName, currentDescription);
+        onChangeViewModelItem({
+            changeType: ChangeType.CHANGED,
+            itemName: currentItemName,
+            itemDescription: currentDescription,
+        });
 
         this.setState({
             currentMode: NodeViewModelMode.Read,
@@ -89,7 +99,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         const { onChangeViewModelItem } = this.props;
         const { currentItemName } = this.state;
 
-        onChangeViewModelItem(ChangeType.REMOVED, currentItemName);
+        onChangeViewModelItem({ changeType: ChangeType.REMOVED, itemName: currentItemName });
 
         this.setState({
             currentItemName: undefined,

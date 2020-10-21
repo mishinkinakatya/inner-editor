@@ -13,14 +13,14 @@ export interface ChangeSet {
     removed: string[];
 }
 
-export interface Changes {
+export interface NodeChanges {
     changeType: string;
     itemName: string;
     nodeNames: Path;
     itemDescription?: PropertyDescription;
 }
 
-export function createChangeSet({ changeType, itemName, nodeNames, itemDescription }: Changes): ChangeSet {
+export function createChangeSet({ changeType, itemName, nodeNames, itemDescription }: NodeChanges): ChangeSet {
     const changeSet = {
         added: [],
         changed: {},

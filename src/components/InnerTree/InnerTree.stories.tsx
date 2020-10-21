@@ -6,6 +6,10 @@ import { getApi } from "../../Api";
 
 export default { title: "Inner Editor/InnerTree" } as Meta;
 
+const testApi = {
+
+}
+
 const testInner: InnerNodeItem = {
     name: "First",
     viewModel: {

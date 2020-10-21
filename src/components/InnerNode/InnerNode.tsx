@@ -1,18 +1,15 @@
 import * as React from "react";
 import { InnerNodeViewModel } from "../InnerNodeViewModel/InnerNodeViewModel";
-import { InnerNodeItem, PropertyDescription } from "../../domain/Inner";
+import { InnerNodeItem } from "../../domain/Inner";
 import styles from "./InnerNode.css";
 import { Path } from "../../domain/ConverInnerToInnerNode";
+import { NodeChanges } from "../../domain/CreateChangeSet";
+import { ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
 
 interface InnerNodeProps {
     currentNode: InnerNodeItem;
     nodeNames: Path;
-    onChangeInnerNode: (
-        changeType: string,
-        itemName: string,
-        nodeNames: Path,
-        itemDescription?: PropertyDescription,
-    ) => void;
+    onChangeInnerNode({ changeType, itemName, nodeNames, itemDescription }: NodeChanges): void;
 }
 
 interface InnerNodeState {
@@ -71,12 +68,8 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         });
     };
 
-    private readonly handleChangeViewModel = (
-        changeType: string,
-        itemName: string,
-        itemDescription?: PropertyDescription,
-    ) => {
+    private readonly handleChangeViewModel = ({ changeType, itemName, itemDescription }: ViewModelChanges) => {
         const { nodeNames, onChangeInnerNode } = this.props;
-        onChangeInnerNode(changeType, itemName, nodeNames, itemDescription);
+        onChangeInnerNode({ changeType, itemName, nodeNames, itemDescription });
     };
 }
