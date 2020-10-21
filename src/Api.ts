@@ -8,12 +8,11 @@ interface RequestParameters {
 }
 
 export interface ApiModel {
-    changeInnerNode: (changes: {}) => void;
+    changeInnerNode: (changedInnerNode: InnerNodeItem) => void;
     getInner: () => InnerNodeItem;
 }
 
-const COMMON_URL =
-    "http://localhost.testkontur.ru:11090/v1/ns/00000000-0000-0000-0000-000000000000/drafts/4950a505-99a7-4f34-b3c0-7653206accc8";
+const COMMON_URL = "";
 
 const Method = {
     GET: "GET",
@@ -33,17 +32,17 @@ function checkStatus(response: Response) {
 
 class Api {
     public async getInner() {
-        let response = await this.load({
+        const response = await this.load({
             baseUrl: `${COMMON_URL}/get-inner`,
             method: Method.POST,
         });
-        // let response = await this.load({
+        // const response = await this.load({
         //     baseUrl: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
         //     method: Method.POST,
         //     body: JSON.stringify({
         //         added: [],
-        //         changed: {},
-        //         removed: ["Root/ItemsWithNesting.children"],
+        //         changed: { "Root/ItemsWithNesting/0/NestedItems.value": "979898", "Root/ItemsWithNesting.prop": "lllll",  "Root/ItemsWithNesting/0/NestedItems/Value.value": 111},
+        //         removed: [],
         //     }),
         //     headers: new Headers({ "Content-Type": `application/json` }),
         // });
@@ -51,7 +50,7 @@ class Api {
     }
 
     public async changeInnerNode(changedInnerNode: InnerNodeItem) {
-        let response = await this.load({
+        const response = await this.load({
             baseUrl: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
             method: Method.POST,
             body: JSON.stringify(changedInnerNode),
@@ -61,12 +60,8 @@ class Api {
         return response;
     }
 
-    // public async deleteInnerNode() {}
-
-    // public async addInnerNode() {}
-
     private async load({ baseUrl, method = Method.GET, body = undefined, headers = new Headers() }: RequestParameters) {
-        let response = await fetch(`${baseUrl}`, { method, body, headers, credentials: "include" });
+        const response = await fetch(`${baseUrl}`, { method, body, headers, credentials: "include" });
         checkStatus(response);
         return response;
     }

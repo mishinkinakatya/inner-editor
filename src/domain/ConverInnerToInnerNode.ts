@@ -2,7 +2,7 @@ import { Inner, InnerNodeItem } from "./Inner";
 
 type PathSegment = string;
 
-type Path = PathSegment[];
+export type Path = PathSegment[];
 
 export type Paths = Path[];
 
@@ -27,7 +27,6 @@ export function convertInnerToInnerNode(inputInner: Inner): InnerNodeItem {
 
             return {
                 name: segment,
-                fullPath: fullPath.join("/"),
                 children: getInnerNodes(
                     fullPath,
                     paths.map(skipFirstSegment).filter(x => !isEmptyPath(x)),

@@ -4,9 +4,8 @@ export interface Inner {
 
 export interface InnerNodeItem {
     name: string;
-    fullPath: string;
     children: InnerNodeItem[];
-    viewModel: NodeViewModel | undefined;
+    viewModel: NodeViewModel;
 }
 
 export type PropertyDescription = number | string | string[];

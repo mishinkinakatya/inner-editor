@@ -1,29 +1,24 @@
 import * as React from "react";
 import { NodeViewModelItem } from "../NodeViewModelItem/NodeViewModelItem";
-import { InnerNodeItem, NodeViewModel } from "../../domain/Inner";
+import { NodeViewModel, PropertyDescription } from "../../domain/Inner";
 import styles from "./InnerNodeViewModel.css";
-import { ApiModel } from "../../Api";
 
 interface InnerNodeViewModelProps {
     nodeViewModel: NodeViewModel;
-    fullPath: string;
-    api: ApiModel;
-    onChangeInner: () => void;
+    onChangeViewModel: (changeType: string, itemName: string, itemDescription?: PropertyDescription) => void;
 }
 
 interface InnerNodeViewModelState {
     areViewModelVisible: boolean;
-    currentViewModel: NodeViewModel;
 }
 
 export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelProps, InnerNodeViewModelState> {
     public state = {
         areViewModelVisible: false,
-        currentViewModel: this.props.nodeViewModel,
     };
 
-    public render() {
-        const { nodeViewModel, fullPath, api, onChangeInner } = this.props;
+    public render(): JSX.Element {
+        const { nodeViewModel } = this.props;
         const { areViewModelVisible } = this.state;
 
         return areViewModelVisible ? (
@@ -38,11 +33,9 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
                     {Object.keys(nodeViewModel).map(item => (
                         <NodeViewModelItem
                             key={item}
-                            api={api}
                             itemName={item}
-                            fullPath={fullPath}
                             itemDescription={nodeViewModel[item]}
-                            onChangeInner={onChangeInner}
+                            onChangeViewModelItem={this.handleChangeViewModelItem}
                         />
                     ))}
                 </div>
@@ -61,5 +54,14 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
         this.setState({
             areViewModelVisible: !this.state.areViewModelVisible,
         });
+    };
+
+    private readonly handleChangeViewModelItem = (
+        changeType: string,
+        itemName: string,
+        itemDescription?: PropertyDescription,
+    ) => {
+        const { onChangeViewModel } = this.props;
+        onChangeViewModel(changeType, itemName, itemDescription);
     };
 }

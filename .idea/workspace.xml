@@ -29,18 +29,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/CreateChangeSet.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/Inner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Inner.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/CreateChangeSet.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/CreateChangeSet.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,10 +81,16 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="js.last.introduce.type" value="CONST" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/InnerNodeViewModel" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/node_modules/mocha" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\mishinkina\Desktop\JS\inner-editor\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints.TypeScript" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="ts.external.directory.path" value="C:\Users\mishinkina\Desktop\JS\inner-editor\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -95,7 +110,7 @@
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Inner adapter.Convert Inner To Inner Node">
+  <component name="RunManager" selected="Mocha.Create Change Set.Remove view model item">
     <configuration name="prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -106,7 +121,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="Create Inner Node" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="Create Change Set.CreateChangeSet" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -114,10 +129,27 @@
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>SUITE</test-kind>
-      <test-file>$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts</test-file>
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/CreateChangeSet.test.ts</test-file>
       <test-names>
-        <name value="Create Inner Node" />
+        <name value="Create Change Set" />
+        <name value="CreateChangeSet" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Create Change Set.Remove view model item" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>TEST</test-kind>
+      <test-file>$PROJECT_DIR$/test/CreateChangeSet.test.ts</test-file>
+      <test-names>
+        <name value="Create Change Set" />
+        <name value="Remove view model item" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -153,29 +185,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Inner adapter.Convert Real Inner To Inner Node" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
-      <working-directory>$PROJECT_DIR$</working-directory>
-      <pass-parent-env>true</pass-parent-env>
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>TEST</test-kind>
-      <test-file>$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts</test-file>
-      <test-names>
-        <name value="Inner adapter" />
-        <name value="Convert Real Inner To Inner Node" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Mocha.Create Change Set.Remove view model item" />
+        <item itemvalue="Mocha.Create Change Set.CreateChangeSet" />
         <item itemvalue="npm.prettier" />
         <item itemvalue="Mocha.Inner adapter.Convert Inner To Inner Node" />
         <item itemvalue="Mocha.Inner adapter.Convert Inner To Inner Node With Multiple" />
-        <item itemvalue="Mocha.Inner adapter.Convert Real Inner To Inner Node" />
-        <item itemvalue="Mocha.Create Inner Node" />
       </list>
     </recent_temporary>
   </component>
@@ -225,9 +241,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="93" y="93" width="1095" height="503" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1602732625616">
-      <screen x="0" y="0" width="1280" height="688" />
+    <state x="2748" y="417" key="#ESLint" timestamp="1602842189486">
+      <screen x="1920" y="0" width="1920" height="1050" />
     </state>
+    <state x="2748" y="417" key="#ESLint/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602842189486" />
+    <state x="140" y="140" width="1643" height="755" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1603258033852">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="140" y="140" width="1643" height="755" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603258033852" />
     <state x="-2721" y="247" width="2577" height="737" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602477576330" />
     <state x="-7" y="-7" width="1736" height="737" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602594696532" />
     <state x="93" y="93" width="1095" height="503" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1280.688@0.0.1280.688" timestamp="1602732625616" />
@@ -247,29 +268,33 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="535" height="466" key="DebuggerActiveHint/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602009938563" />
-    <state width="650" height="922" key="GridCell.Tab.0.bottom" timestamp="1602840330844">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state width="685" height="904" key="GridCell.Tab.0.bottom" timestamp="1603258037433">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state width="685" height="904" key="GridCell.Tab.0.bottom/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603258037433" />
     <state width="1877" height="71" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="650" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
+    <state width="657" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="398" height="561" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1602732657698" />
-    <state width="650" height="922" key="GridCell.Tab.0.center" timestamp="1602840330844">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state width="685" height="904" key="GridCell.Tab.0.center" timestamp="1603258037433">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state width="685" height="904" key="GridCell.Tab.0.center/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603258037433" />
     <state width="1877" height="71" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="650" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
+    <state width="657" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="398" height="561" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1602732657697" />
-    <state width="650" height="922" key="GridCell.Tab.0.left" timestamp="1602840330843">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state width="685" height="904" key="GridCell.Tab.0.left" timestamp="1603258037433">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state width="685" height="904" key="GridCell.Tab.0.left/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603258037433" />
     <state width="1877" height="71" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="650" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330843" />
+    <state width="657" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="398" height="561" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1602732657697" />
-    <state width="650" height="922" key="GridCell.Tab.0.right" timestamp="1602840330844">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state width="685" height="904" key="GridCell.Tab.0.right" timestamp="1603258037433">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state width="685" height="904" key="GridCell.Tab.0.right/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603258037433" />
     <state width="1877" height="71" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
-    <state width="650" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602840330844" />
+    <state width="657" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="398" height="561" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1602732657698" />
     <state width="1237" height="33" key="GridCell.Tab.1.bottom" timestamp="1602732239166">
       <screen x="0" y="0" width="1280" height="688" />
@@ -343,10 +368,10 @@
     <state width="1877" height="71" key="GridCell.Tab.3.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602478083978" />
     <state width="1877" height="269" key="GridCell.Tab.3.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602246124408" />
     <state width="1237" height="33" key="GridCell.Tab.3.right/0.0.1280.688@0.0.1280.688" timestamp="1602732239166" />
-    <state x="2381" y="170" key="SettingsEditor" timestamp="1602583473917">
+    <state x="2381" y="170" key="SettingsEditor" timestamp="1602842178836">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="2381" y="170" key="SettingsEditor/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602583473917" />
+    <state x="2381" y="170" key="SettingsEditor/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602842178836" />
     <state width="498" height="446" key="SwitcherDM" timestamp="1602582034970">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
@@ -355,13 +380,17 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2697" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602588133547" />
+    <state x="2587" y="124" width="585" height="801" key="find.popup" timestamp="1602841882176">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2587" y="124" width="585" height="801" key="find.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841882176" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1602581813080">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602581813080" />
-    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602658303343">
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1602844011308">
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602658303343" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602844011307" />
   </component>
 </project>

@@ -9,6 +9,6 @@ export const NodeViewModelItemComponent = (): JSX.Element => (
     <NodeViewModelItem
         itemName="itemName"
         itemDescription="ItemDescription"
-        onChangeViewModel={action("onChangeViewModel")}
+        onChangeViewModelItem={action("onChangeViewModelItem")}
     />
 );

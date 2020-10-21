@@ -1,13 +1,18 @@
 import * as React from "react";
 import { InnerNodeViewModel } from "../InnerNodeViewModel/InnerNodeViewModel";
-import { InnerNodeItem } from "../../domain/Inner";
+import { InnerNodeItem, PropertyDescription } from "../../domain/Inner";
 import styles from "./InnerNode.css";
-import { ApiModel } from "../../Api";
+import { Path } from "../../domain/ConverInnerToInnerNode";
 
 interface InnerNodeProps {
-    inner: InnerNodeItem;
-    api: ApiModel;
-    onChangeInner: () => void;
+    currentNode: InnerNodeItem;
+    nodeNames: Path;
+    onChangeInnerNode: (
+        changeType: string,
+        itemName: string,
+        nodeNames: Path,
+        itemDescription?: PropertyDescription,
+    ) => void;
 }
 
 interface InnerNodeState {
@@ -19,8 +24,8 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         expanded: false,
     };
 
-    public render() {
-        const { inner, api, onChangeInner } = this.props;
+    public render(): JSX.Element {
+        const { currentNode, nodeNames, onChangeInnerNode } = this.props;
         const { expanded } = this.state;
 
         return (
@@ -28,26 +33,33 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
                 <input
                     className={styles.nodeName}
                     type="button"
-                    value={expanded || inner.children.length === 0 ? "◢" : "▷"}
+                    value={expanded || currentNode.children.length === 0 ? "◢" : "▷"}
                     onClick={this.handleChangeExpanded}
                 />
-                <input className={styles.nodeName} value={inner.name} readOnly={true} />
+                <input className={styles.nodeName} value={currentNode.name} readOnly={true} />
 
-                {inner.viewModel ? (
+                {currentNode.viewModel ? (
                     <InnerNodeViewModel
-                        api={api}
-                        nodeViewModel={inner.viewModel}
-                        fullPath={inner.fullPath}
-                        onChangeInner={onChangeInner}
+                        nodeViewModel={currentNode.viewModel}
+                        onChangeViewModel={this.handleChangeViewModel}
                     />
                 ) : (
                     ``
                 )}
 
-                {expanded && inner.children
-                    ? inner.children.map(child => (
-                          <InnerNode key={child.name} api={api} inner={child} onChangeInner={onChangeInner} />
-                      ))
+                {expanded && currentNode.children
+                    ? currentNode.children.map(child => {
+                          const nodeNamesWithCurrentNode = [...nodeNames, child.name];
+
+                          return (
+                              <InnerNode
+                                  key={child.name}
+                                  currentNode={child}
+                                  nodeNames={nodeNamesWithCurrentNode}
+                                  onChangeInnerNode={onChangeInnerNode}
+                              />
+                          );
+                      })
                     : ``}
             </div>
         );
@@ -57,5 +69,14 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         this.setState({
             expanded: !this.state.expanded,
         });
+    };
+
+    private readonly handleChangeViewModel = (
+        changeType: string,
+        itemName: string,
+        itemDescription?: PropertyDescription,
+    ) => {
+        const { nodeNames, onChangeInnerNode } = this.props;
+        onChangeInnerNode(changeType, itemName, nodeNames, itemDescription);
     };
 }

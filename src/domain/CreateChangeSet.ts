@@ -1,10 +1,5 @@
-// export enum ChangeType {
-//     added,
-//     changed,
-//     removed,
-// }
-
 import { PropertyDescription } from "./Inner";
+import { Path } from "./ConverInnerToInnerNode";
 
 export const ChangeType = {
     ADDED: "added",
@@ -13,36 +8,35 @@ export const ChangeType = {
 };
 
 export interface ChangeSet {
-    added: string[] | undefined;
-    changed: { [key: string]: PropertyDescription } | undefined;
-    removed: string[] | undefined;
-}
-
-interface ChangesData {
-    pathWithProperty: string;
-    propertyDescription: string;
+    added: string[];
+    changed: { [key: string]: PropertyDescription };
+    removed: string[];
 }
 
 export interface Changes {
-    type: string;
-    data: [] | string[] | ChangesData;
+    changeType: string;
+    itemName: string;
+    nodeNames: Path;
+    itemDescription?: PropertyDescription;
 }
 
-export function createChangeSet(changes: Changes): ChangeSet {
+export function createChangeSet({ changeType, itemName, nodeNames, itemDescription }: Changes): ChangeSet {
     const changeSet = {
-        added: undefined,
-        changed: undefined,
-        removed: undefined,
+        added: [],
+        changed: {},
+        removed: [] as string[],
     };
 
-    if (changes.type === ChangeType.CHANGED) {
-        const newProp = changes.data.pathWithProperty.toString();
-        changeSet.changed.newProp;
-        return changeSet;
-    } else {
+    switch (changeType) {
+        case ChangeType.CHANGED:
+            changeSet.changed = {
+                [nodeNames.join("/").concat(".").concat(itemName)]: itemDescription,
+            };
+            break;
+        case ChangeType.REMOVED:
+            changeSet.removed = [nodeNames.join("/").concat(".").concat(itemName)];
+            break;
     }
-    const chType = changes.type;
-    // changeSet[changes.type] = changes.data;
 
-    // return chType;
+    return changeSet;
 }

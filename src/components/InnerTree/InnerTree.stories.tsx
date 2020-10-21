@@ -22,7 +22,7 @@ const testInner: InnerNodeItem = {
                 {
                     name: "Fourth",
                     viewModel: {
-                        error: ["FourthError"],
+                        value: "FourthValue",
                     },
                     children: [],
                 },

@@ -1,41 +1,38 @@
 import * as React from "react";
 import { InnerNode } from "../InnerNode/InnerNode";
-import { InnerNodeItem } from "../../domain/Inner";
+import { InnerNodeItem, PropertyDescription } from "../../domain/Inner";
 import styles from "./InnerTree.css";
 import { ApiModel } from "../../Api";
-import { convertInnerToInnerNode } from "../../domain/ConverInnerToInnerNode";
+import { Path } from "../../domain/ConverInnerToInnerNode";
+import { ChangeType, createChangeSet } from "../../domain/CreateChangeSet";
 
 interface InnerTreeProps {
     api: ApiModel;
+    inner: InnerNodeItem;
 }
 
 interface InnerTreeState {
-    currentInner: InnerNodeItem | undefined;
+    rootNode: InnerNodeItem;
 }
 
-export class InnerTree extends React.PureComponent<InnerTreeProps> {
-    public state: InnerTreeState = {
-        currentInner: undefined,
+export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeState> {
+    public state = {
+        rootNode: this.props.inner,
     };
 
-    componentDidMount() {
-        this.getInner();
-    }
-
-    public render() {
-        const { api } = this.props;
-        const { currentInner } = this.state;
+    public render(): JSX.Element {
+        const { rootNode } = this.state;
 
         return (
             <>
                 <h1>Inner Editor</h1>
-                {currentInner ? (
+                {rootNode ? (
                     <div className={styles.innerTree}>
                         <InnerNode
-                            api={api}
-                            key={currentInner.name}
-                            inner={currentInner}
-                            onChangeInner={this.handleChangeInner}
+                            key={rootNode.name}
+                            nodeNames={[rootNode.name]}
+                            currentNode={rootNode}
+                            onChangeInnerNode={this.handleChangeInnerNode}
                         />
                     </div>
                 ) : (
@@ -45,31 +42,53 @@ export class InnerTree extends React.PureComponent<InnerTreeProps> {
         );
     }
 
-    private readonly handleChangeInner = () => {
-        this.getInner();
-    };
-
-    private readonly getInner = () => {
+    private readonly handleChangeInnerNode = (
+        changeType: string,
+        itemName: string,
+        nodeNames: Path,
+        itemDescription?: PropertyDescription,
+    ) => {
         const { api } = this.props;
+        const { rootNode } = this.state;
 
-        const changeState = (inner: InnerNodeItem) => {
+        const changeRootNode = (inner: InnerNodeItem) => {
             this.setState({
-                currentInner: inner,
+                rootNode: this.updateRootNode(inner, changeType, itemName, nodeNames, itemDescription),
             });
         };
 
-        async function getInner() {
-            let result = await api.getInner();
-            return convertInnerToInnerNode(result);
-        }
-
         (async function () {
             try {
-                let result = await getInner();
-                changeState(result);
+                await api.changeInnerNode(createChangeSet({ changeType, itemName, nodeNames, itemDescription }));
+                changeRootNode({ ...rootNode });
             } catch (err) {
                 console.error(err);
             }
         })();
+    };
+
+    private updateRootNode = (
+        inner: InnerNodeItem,
+        changeType: string,
+        itemName: string,
+        nodeNames: Path,
+        itemDescription?: PropertyDescription,
+    ): InnerNodeItem => {
+        let updatedNode = inner;
+        let nodeNumber = 1;
+
+        //TODO Избавиться от while
+        while (nodeNumber < nodeNames.length) {
+            updatedNode = updatedNode.children.find(x => x.name === nodeNames[nodeNumber]);
+            nodeNumber++;
+        }
+
+        if (changeType === ChangeType.CHANGED && itemDescription) {
+            updatedNode.viewModel[itemName] = itemDescription;
+        } else if (changeType === ChangeType.REMOVED) {
+            delete updatedNode.viewModel[itemName];
+        }
+
+        return inner;
     };
 }

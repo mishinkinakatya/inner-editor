@@ -2,6 +2,7 @@ import * as React from "react";
 import { Meta } from "@storybook/react/types-6-0";
 import { InnerNodeItem } from "../../domain/Inner";
 import { InnerNode } from "./InnerNode";
+import { action } from "@storybook/addon-actions";
 
 export default { title: "Inner Editor/InnerNode" } as Meta;
 
@@ -14,4 +15,10 @@ const testInner: InnerNodeItem = {
     children: [],
 };
 
-export const InnerNodeComponent = (): JSX.Element => <InnerNode inner={testInner} />;
+export const InnerNodeComponent = (): JSX.Element => (
+    <InnerNode
+        currentNode={testInner}
+        nodeNames={["Head", "Body", "First"]}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
