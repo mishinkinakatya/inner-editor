@@ -1,4 +1,5 @@
-import { Inner, InnerNodeItem } from "./Inner";
+import { InnerNodeItem } from "./Inner";
+import { Inner } from "../api/Inner";
 
 type PathSegment = string;
 

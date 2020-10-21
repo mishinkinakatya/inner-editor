@@ -2,9 +2,9 @@ import * as React from "react";
 import { InnerNode } from "../InnerNode/InnerNode";
 import { InnerNodeItem, PropertyDescription } from "../../domain/Inner";
 import styles from "./InnerTree.css";
-import { ICandyApi } from "../../Api";
 import { Path } from "../../domain/ConverInnerToInnerNode";
 import { ChangeType, createChangeSet, NodeChanges } from "../../domain/CreateChangeSet";
+import { ICandyApi } from "../../api/ICandyApi";
 
 interface InnerTreeProps {
     api: ICandyApi;
@@ -37,7 +37,7 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
                         <InnerNode
                             key={rootNode.name}
                             nodeNames={[rootNode.name]}
-                            currentNode={rootNode}
+                            node={rootNode}
                             onChangeInnerNode={this.handleChangeInnerNode}
                         />
                     </div>

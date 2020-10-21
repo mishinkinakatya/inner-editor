@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { InnerTree } from "./components/InnerTree/InnerTree";
-import { getApi } from "./Api";
+import { Api } from "./api/Api";
 import { convertInnerToInnerNode } from "./domain/ConverInnerToInnerNode";
 
-const api = getApi();
+const api = new Api();
 
-async function getInner() {
+async function renderInner() {
     ReactDOM.render(<h1>Loading...</h1>, document.querySelector(`#root`));
     const result = await api.getInner();
 
@@ -16,7 +16,7 @@ async function getInner() {
 
 (async function () {
     try {
-        await getInner();
+        await renderInner();
     } catch (err) {
         console.error(err);
     }

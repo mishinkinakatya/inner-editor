@@ -30,14 +30,21 @@
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/ChangeSet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/ICandyApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/Inner.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/ConverInnerToInnerNode.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/CreateChangeSet.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domain/Inner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Inner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,12 +97,17 @@
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\stories" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components" />
     </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\Inner.ts" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ChangeSet.ts" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ICandyApi.ts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\domain" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModelItem" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNode" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
     </key>
   </component>
   <component name="RunManager" selected="Mocha.Create Change Set.Remove view model item">
@@ -244,9 +256,10 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state x="2649" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602493220654" />
-    <state x="2373" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602507016826">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state x="453" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1603283143116">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+    <state x="453" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603283143116" />
     <state x="2373" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602507016826" />
     <state x="2610" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602496138571">
       <screen x="1920" y="0" width="1920" height="1050" />
@@ -376,10 +389,10 @@
       <screen x="1920" y="0" width="1920" height="1050" />
     </state>
     <state width="600" height="428" key="javadoc.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602581813080" />
-    <state x="623" y="223" width="672" height="667" key="search.everywhere.popup" timestamp="1603259803240">
+    <state x="623" y="223" width="672" height="667" key="search.everywhere.popup" timestamp="1603281381544">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="667" key="search.everywhere.popup/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603259803240" />
+    <state x="623" y="223" width="672" height="667" key="search.everywhere.popup/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603281381544" />
     <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602844011307" />
   </component>
 </project>

@@ -7,7 +7,7 @@ import { NodeChanges } from "../../domain/CreateChangeSet";
 import { ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
 
 interface InnerNodeProps {
-    currentNode: InnerNodeItem;
+    node: InnerNodeItem;
     nodeNames: Path;
     onChangeInnerNode({ changeType, itemName, nodeNames, itemDescription }: NodeChanges): void;
 }
@@ -22,7 +22,7 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
     };
 
     public render(): JSX.Element {
-        const { currentNode, nodeNames, onChangeInnerNode } = this.props;
+        const { node, nodeNames, onChangeInnerNode } = this.props;
         const { expanded } = this.state;
 
         return (
@@ -30,28 +30,25 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
                 <input
                     className={styles.nodeName}
                     type="button"
-                    value={expanded || currentNode.children.length === 0 ? "◢" : "▷"}
+                    value={expanded || node.children.length === 0 ? "◢" : "▷"}
                     onClick={this.handleChangeExpanded}
                 />
-                <input className={styles.nodeName} value={currentNode.name} readOnly={true} />
+                <input className={styles.nodeName} value={node.name} readOnly={true} />
 
-                {currentNode.viewModel ? (
-                    <InnerNodeViewModel
-                        nodeViewModel={currentNode.viewModel}
-                        onChangeViewModel={this.handleChangeViewModel}
-                    />
+                {node.viewModel ? (
+                    <InnerNodeViewModel nodeViewModel={node.viewModel} onChangeViewModel={this.handleChangeViewModel} />
                 ) : (
                     ``
                 )}
 
-                {expanded && currentNode.children
-                    ? currentNode.children.map(child => {
+                {expanded && node.children
+                    ? node.children.map(child => {
                           const nodeNamesWithCurrentNode = [...nodeNames, child.name];
 
                           return (
                               <InnerNode
                                   key={child.name}
-                                  currentNode={child}
+                                  node={child}
                                   nodeNames={nodeNamesWithCurrentNode}
                                   onChangeInnerNode={onChangeInnerNode}
                               />

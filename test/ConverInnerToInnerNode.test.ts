@@ -1,6 +1,6 @@
 import { expect } from "chai";
-import { Inner } from "../src/domain/Inner";
 import { convertInnerToInnerNode } from "../src/domain/ConverInnerToInnerNode";
+import {Inner} from "../src/api/Inner";
 
 const inputTestInner: Inner = {
     "А1/Б1/С1": {

@@ -9,19 +9,19 @@ interface InnerNodeViewModelProps {
 }
 
 interface InnerNodeViewModelState {
-    areViewModelVisible: boolean;
+    visible: boolean;
 }
 
 export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelProps, InnerNodeViewModelState> {
     public state = {
-        areViewModelVisible: false,
+        visible: false,
     };
 
     public render(): JSX.Element {
         const { nodeViewModel } = this.props;
-        const { areViewModelVisible } = this.state;
+        const { visible } = this.state;
 
-        return areViewModelVisible ? (
+        return visible ? (
             <div className={styles.viewModel}>
                 <div>
                     <input
@@ -52,7 +52,7 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
 
     private readonly handleChangeVisibleOfViewModel = () => {
         this.setState({
-            areViewModelVisible: !this.state.areViewModelVisible,
+            visible: !this.state.visible,
         });
     };
 

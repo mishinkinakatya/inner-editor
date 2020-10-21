@@ -2,13 +2,10 @@ import * as React from "react";
 import { Meta } from "@storybook/react/types-6-0";
 import { InnerTree } from "./InnerTree";
 import { InnerNodeItem } from "../../domain/Inner";
-import { getApi } from "../../Api";
+import { getApi } from "../../api/Api";
 
 export default { title: "Inner Editor/InnerTree" } as Meta;
 
-const testApi = {
-
-}
 
 const testInner: InnerNodeItem = {
     name: "First",

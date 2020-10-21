@@ -1,16 +1,10 @@
 import { PropertyDescription } from "./Inner";
 import { Path } from "./ConverInnerToInnerNode";
+import { ChangeSet } from "../api/ChangeSet";
 
-export const ChangeType = {
-    ADDED: "added",
-    CHANGED: "changed",
-    REMOVED: "removed",
-};
-
-export interface ChangeSet {
-    added: string[];
-    changed: { [key: string]: PropertyDescription };
-    removed: string[];
+export enum ChangeType {
+    CHANGED = "changed",
+    REMOVED = "removed",
 }
 
 export interface NodeChanges {
