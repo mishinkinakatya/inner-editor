@@ -12,6 +12,9 @@
     outline: none;
     background-color: inherit;
     margin-left: auto;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .showPropsButton {
@@ -21,4 +24,5 @@
     width: 24px;
     height: 24px;
     margin-left: 2px;
+    cursor: pointer;
 }

@@ -1,11 +1,16 @@
 .innerNode {
     display: block;
     padding-left: 30px;
-    vertical-align: top;
     margin: 5px;
 }
 
 .nodeName {
     vertical-align: top;
+    font: 16px Arial sans-serif;
+}
+
+.expandButton {
+    border: none;
+    background: none;
     font: 16px Arial sans-serif;
 }

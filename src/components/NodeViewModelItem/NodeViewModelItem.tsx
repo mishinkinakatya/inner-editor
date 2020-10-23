@@ -16,57 +16,50 @@ interface NodeViewModelItemProps {
 }
 
 interface NodeViewModelItemState {
-    edited: boolean;
     name: string | undefined;
     description: PropertyDescription;
 }
 
 export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProps, NodeViewModelItemState> {
     public state = {
-        edited: false,
         name: this.props.itemName,
         description: this.props.itemDescription,
     };
 
     public render(): JSX.Element {
-        const { edited, name, description } = this.state;
+        const { name, description } = this.state;
 
-        let item;
-        if (name) {
-            item = (
-                <>
-                    <span className={styles.propertyName}>{name}: </span>;
-                    {edited ? (
-                        <div>
-                            <input
-                                className={styles.propertyValue}
-                                value={description}
-                                onChange={this.handleChangeItemDescription}
-                            />
-                            <input type="button" value="V" onClick={this.handleSaveButtonClick} />
-                            <input type="button" value="↶" onClick={this.handleCancelButtonClick} />
-                            <input type="button" value="X" onClick={this.handleDeleteButtonClick} />
-                        </div>
-                    ) : (
-                        <div>
-                            <input className={styles.propertyValue} value={description} disabled={true} />
-                            <input type="button" value="✏" onClick={this.handleEditButtonClick} />
-                        </div>
-                    )}
-                </>
-            );
-        } else {
-            item = undefined;
-        }
-
-        return <div className={styles.viewModelItem}>{item}</div>;
+        return (
+            <div className={styles.viewModelItem}>
+                <span className={styles.propertyName}>{name}: </span>
+                <input
+                    className={styles.propertyValue}
+                    value={description}
+                    onChange={this.handleChangeItemDescription}
+                />
+                <div className={styles.actionButtons}>
+                    <input
+                        className={styles.actionButton}
+                        type="button"
+                        value="Save"
+                        onClick={this.handleSaveButtonClick}
+                    />
+                    <input
+                        className={styles.actionButton}
+                        type="button"
+                        value="Cancel"
+                        onClick={this.handleCancelButtonClick}
+                    />
+                    <input
+                        className={styles.actionButton}
+                        type="button"
+                        value="Delete"
+                        onClick={this.handleDeleteButtonClick}
+                    />
+                </div>
+            </div>
+        );
     }
-
-    private readonly handleEditButtonClick = () => {
-        this.setState({
-            edited: !this.state.edited,
-        });
-    };
 
     private readonly handleChangeItemDescription = (evt: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
@@ -83,10 +76,6 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
             itemName: name,
             itemDescription: description,
         });
-
-        this.setState({
-            edited: !this.state.edited,
-        });
     };
 
     private readonly handleDeleteButtonClick = () => {
@@ -102,7 +91,6 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
 
     private readonly handleCancelButtonClick = () => {
         this.setState({
-            edited: !this.state.edited,
             description: this.props.itemDescription,
         });
     };

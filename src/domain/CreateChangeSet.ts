@@ -8,13 +8,13 @@ export enum ChangeType {
 }
 
 export interface NodeChanges {
+    nodeNames: Path;
     changeType: string;
     itemName: string;
-    nodeNames: Path;
     itemDescription?: PropertyDescription;
 }
 
-export function createChangeSet({ changeType, itemName, nodeNames, itemDescription }: NodeChanges): ChangeSet {
+export function createChangeSet({ nodeNames, changeType, itemName, itemDescription }: NodeChanges): ChangeSet {
     const changeSet = {
         added: [],
         changed: {},

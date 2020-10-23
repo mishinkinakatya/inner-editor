@@ -16,9 +16,5 @@ const testInner: InnerNodeItem = {
 };
 
 export const InnerNodeComponent = (): JSX.Element => (
-    <InnerNode
-        currentNode={testInner}
-        nodeNames={["Head", "Body", "First"]}
-        onChangeInnerNode={action("onChangeInnerNode")}
-    />
+    <InnerNode node={testInner} nodeNames={["Head", "Body", "First"]} onChangeInnerNode={action("onChangeInnerNode")} />
 );

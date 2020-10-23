@@ -16,9 +16,9 @@ interface InnerTreeState {
 }
 interface InnerChanges {
     inner: InnerNodeItem;
+    nodeNames: Path;
     changeType: string;
     itemName: string;
-    nodeNames: Path;
     itemDescription?: PropertyDescription;
 }
 export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeState> {
@@ -48,19 +48,19 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
         );
     }
 
-    private readonly handleChangeInnerNode = ({ changeType, itemName, nodeNames, itemDescription }: NodeChanges) => {
+    private readonly handleChangeInnerNode = ({ nodeNames, changeType, itemName, itemDescription }: NodeChanges) => {
         const { api } = this.props;
         const { rootNode } = this.state;
 
         const changeRootNode = (inner: InnerNodeItem) => {
             this.setState({
-                rootNode: this.updateRootNode({ inner, changeType, itemName, nodeNames, itemDescription }),
+                rootNode: this.updateRootNode({ inner, nodeNames, changeType, itemName, itemDescription }),
             });
         };
 
         (async function () {
             try {
-                await api.changeInnerNode(createChangeSet({ changeType, itemName, nodeNames, itemDescription }));
+                await api.changeInnerNode(createChangeSet({ nodeNames, changeType, itemName, itemDescription }));
                 changeRootNode({ ...rootNode });
             } catch (err) {
                 console.error(err);
@@ -70,9 +70,9 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
 
     private updateRootNode = ({
         inner,
+        nodeNames,
         changeType,
         itemName,
-        nodeNames,
         itemDescription,
     }: InnerChanges): InnerNodeItem => {
         let updatedNode = inner;

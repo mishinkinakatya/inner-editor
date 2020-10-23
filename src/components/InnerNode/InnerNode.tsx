@@ -2,14 +2,14 @@ import * as React from "react";
 import { InnerNodeViewModel } from "../InnerNodeViewModel/InnerNodeViewModel";
 import { InnerNodeItem } from "../../domain/Inner";
 import styles from "./InnerNode.css";
-import { Path } from "../../domain/ConverInnerToInnerNode";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 import { ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
+import { Path } from "../../domain/ConverInnerToInnerNode";
 
 interface InnerNodeProps {
     node: InnerNodeItem;
     nodeNames: Path;
-    onChangeInnerNode({ changeType, itemName, nodeNames, itemDescription }: NodeChanges): void;
+    onChangeInnerNode({ nodeNames, changeType, itemName, itemDescription }: NodeChanges): void;
 }
 
 interface InnerNodeState {
@@ -18,7 +18,7 @@ interface InnerNodeState {
 
 export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeState> {
     public state = {
-        expanded: false,
+        expanded: true,
     };
 
     public render(): JSX.Element {
@@ -28,17 +28,15 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         return (
             <div className={styles.innerNode}>
                 <input
-                    className={styles.nodeName}
+                    className={styles.expandButton}
                     type="button"
                     value={expanded || node.children.length === 0 ? "◢" : "▷"}
                     onClick={this.handleChangeExpanded}
                 />
                 <input className={styles.nodeName} value={node.name} readOnly={true} />
 
-                {node.viewModel ? (
+                {node.viewModel && (
                     <InnerNodeViewModel nodeViewModel={node.viewModel} onChangeViewModel={this.handleChangeViewModel} />
-                ) : (
-                    ``
                 )}
 
                 {expanded && node.children
@@ -67,6 +65,6 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
 
     private readonly handleChangeViewModel = ({ changeType, itemName, itemDescription }: ViewModelChanges) => {
         const { nodeNames, onChangeInnerNode } = this.props;
-        onChangeInnerNode({ changeType, itemName, nodeNames, itemDescription });
+        onChangeInnerNode({ nodeNames, changeType, itemName, itemDescription });
     };
 }
