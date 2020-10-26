@@ -1,7 +1,7 @@
 export interface InnerNodeItem {
     name: string;
     children: InnerNodeItem[];
-    viewModel: NodeViewModel;
+    viewModel: undefined | NodeViewModel;
 }
 
 export type PropertyDescription = number | string | string[];

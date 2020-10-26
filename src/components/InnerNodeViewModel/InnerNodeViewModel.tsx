@@ -58,6 +58,10 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
 
     private readonly handleChangeViewModelItem = ({ changeType, itemName, itemDescription }: ViewModelChanges) => {
         const { onChangeViewModel } = this.props;
-        onChangeViewModel({ changeType, itemName, itemDescription });
+        onChangeViewModel({
+            changeType: changeType,
+            itemName: itemName,
+            itemDescription: itemDescription,
+        });
     };
 }

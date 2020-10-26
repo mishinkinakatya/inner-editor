@@ -34,12 +34,7 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
                 <h1>Inner Editor</h1>
                 {rootNode ? (
                     <div className={styles.innerTree}>
-                        <InnerNode
-                            key={rootNode.name}
-                            nodeNames={[rootNode.name]}
-                            node={rootNode}
-                            onChangeInnerNode={this.handleChangeInnerNode}
-                        />
+                        <InnerNode key={rootNode.name} node={rootNode} onChangeInnerNode={this.handleChangeInnerNode} />
                     </div>
                 ) : (
                     <h2>Loading...</h2>
@@ -83,11 +78,12 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
             updatedNode = newNode ? newNode : updatedNode;
             nodeNumber++;
         }
-
-        if (changeType === ChangeType.CHANGED && itemDescription) {
-            updatedNode.viewModel[itemName] = itemDescription;
-        } else if (changeType === ChangeType.REMOVED) {
-            delete updatedNode.viewModel[itemName];
+        if (updatedNode.viewModel) {
+            if (changeType === ChangeType.CHANGED && itemDescription) {
+                updatedNode.viewModel[itemName] = itemDescription;
+            } else if (changeType === ChangeType.REMOVED) {
+                delete updatedNode.viewModel[itemName];
+            }
         }
 
         return inner;
