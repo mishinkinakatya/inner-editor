@@ -30,11 +30,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/Inner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/domain/Inner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +204,7 @@
       <workItem from="1602434751528" duration="34000" />
       <workItem from="1602434823398" duration="4233000" />
       <workItem from="1602492681419" duration="63533000" />
-      <workItem from="1603690638781" duration="799000" />
+      <workItem from="1603690638781" duration="9749000" />
     </task>
     <servers />
   </component>

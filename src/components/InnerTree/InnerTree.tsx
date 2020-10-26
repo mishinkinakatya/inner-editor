@@ -49,13 +49,27 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
 
         const changeRootNode = (inner: InnerNodeItem) => {
             this.setState({
-                rootNode: this.updateRootNode({ inner, nodeNames, changeType, itemName, itemDescription }),
+                rootNode: this.updateRootNode({
+                    inner: inner,
+                    nodeNames: nodeNames,
+                    changeType: changeType,
+                    itemName: itemName,
+                    itemDescription: itemDescription,
+                }),
             });
         };
 
         (async function () {
             try {
-                await api.changeInnerNode(createChangeSet({ nodeNames, changeType, itemName, itemDescription }));
+                const result = api.changeInnerNode(
+                    createChangeSet({
+                        nodeNames: nodeNames,
+                        changeType: changeType,
+                        itemName: itemName,
+                        itemDescription: itemDescription,
+                    }),
+                );
+                await result;
                 changeRootNode({ ...rootNode });
             } catch (err) {
                 console.error(err);

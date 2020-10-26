@@ -38,24 +38,15 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
                     onChange={this.handleChangeItemDescription}
                 />
                 <div className={styles.actionButtons}>
-                    <input
-                        className={styles.actionButton}
-                        type="button"
-                        value="Save"
-                        onClick={this.handleSaveButtonClick}
-                    />
-                    <input
-                        className={styles.actionButton}
-                        type="button"
-                        value="Cancel"
-                        onClick={this.handleCancelButtonClick}
-                    />
-                    <input
-                        className={styles.actionButton}
-                        type="button"
-                        value="Delete"
-                        onClick={this.handleDeleteButtonClick}
-                    />
+                    <button className={styles.actionButton} onClick={this.handleSaveButtonClick}>
+                        Save
+                    </button>
+                    <button className={styles.actionButton} onClick={this.handleCancelButtonClick}>
+                        Cancel
+                    </button>
+                    <button className={styles.actionButton} onClick={this.handleDeleteButtonClick}>
+                        Delete
+                    </button>
                 </div>
             </div>
         );

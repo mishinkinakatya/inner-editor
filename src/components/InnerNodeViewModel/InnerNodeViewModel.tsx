@@ -24,12 +24,9 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
         return visible ? (
             <div className={styles.viewModel}>
                 <div>
-                    <input
-                        className={styles.switchButton}
-                        type="button"
-                        value="×‍"
-                        onClick={this.handleChangeVisibleOfViewModel}
-                    />
+                    <button className={styles.switchButton} onClick={this.handleChangeVisibleOfViewModel}>
+                        ×
+                    </button>
                     {Object.keys(nodeViewModel).map(item => (
                         <NodeViewModelItem
                             key={item}
@@ -41,12 +38,9 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
                 </div>
             </div>
         ) : (
-            <input
-                className={styles.showPropsButton}
-                type="button"
-                value="👁‍"
-                onClick={this.handleChangeVisibleOfViewModel}
-            />
+            <button className={styles.showPropsButton} onClick={this.handleChangeVisibleOfViewModel}>
+                👁
+            </button>
         );
     }
 

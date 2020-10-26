@@ -12,5 +12,7 @@
 .expandButton {
     border: none;
     background: none;
-    font: 16px Arial sans-serif;
+    width: 20px;
+    height: 20px;
+    /*font: 16px Arial sans-serif;*/
 }

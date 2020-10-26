@@ -25,12 +25,9 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
 
         return (
             <div className={styles.innerNode}>
-                <input
-                    className={styles.expandButton}
-                    type="button"
-                    value={expanded || node.children.length === 0 ? "◢" : "▷"}
-                    onClick={this.handleChangeExpanded}
-                />
+                <button className={styles.expandButton} onClick={this.handleChangeExpanded}>
+                    {expanded || node.children.length === 0 ? "◢" : "▷"}
+                </button>
                 <input className={styles.nodeName} value={node.name} readOnly={true} />
 
                 {node.viewModel && (
