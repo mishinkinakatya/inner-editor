@@ -52,5 +52,10 @@
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/history": "4.7.8",
+    "@types/react-router-dom": "5.1.6",
+    "history": "5.0.0",
+    "react-router-dom": "5.2.0"
+  }
 }

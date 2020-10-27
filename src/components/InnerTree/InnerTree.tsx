@@ -13,6 +13,7 @@ interface InnerTreeProps {
 
 interface InnerTreeState {
     rootNode: InnerNodeItem;
+    disabled: boolean;
 }
 interface InnerChanges {
     inner: InnerNodeItem;
@@ -24,18 +25,19 @@ interface InnerChanges {
 export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeState> {
     public state = {
         rootNode: this.props.inner,
+        disabled: false,
     };
 
     public render(): JSX.Element {
-        const { rootNode } = this.state;
+        const { rootNode, disabled } = this.state;
 
         return (
             <>
                 <h1>Inner Editor</h1>
                 {rootNode ? (
-                    <div className={styles.innerTree}>
+                    <fieldset className={styles.innerTree} disabled={disabled}>
                         <InnerNode key={rootNode.name} node={rootNode} onChangeInnerNode={this.handleChangeInnerNode} />
-                    </div>
+                    </fieldset>
                 ) : (
                     <h2>Loading...</h2>
                 )}
@@ -56,12 +58,20 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
                     itemName: itemName,
                     itemDescription: itemDescription,
                 }),
+                disabled: false,
+            });
+        };
+
+        const disableEditor = () => {
+            this.setState({
+                disabled: true,
             });
         };
 
         (async function () {
             try {
-                const result = api.changeInnerNode(
+                disableEditor();
+                await api.changeInnerNode(
                     createChangeSet({
                         nodeNames: nodeNames,
                         changeType: changeType,
@@ -69,7 +79,6 @@ export class InnerTree extends React.PureComponent<InnerTreeProps, InnerTreeStat
                         itemDescription: itemDescription,
                     }),
                 );
-                await result;
                 changeRootNode({ ...rootNode });
             } catch (err) {
                 console.error(err);

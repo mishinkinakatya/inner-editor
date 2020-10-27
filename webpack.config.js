@@ -34,5 +34,6 @@ module.exports = {
     },
     devServer: {
         allowedHosts: ["localhost.testkontur.ru"],
+        historyApiFallback: true,
     },
 };

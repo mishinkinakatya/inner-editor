@@ -2,7 +2,7 @@ import { ICandyApi } from "./ICandyApi";
 import { ChangeSet } from "./ChangeSet";
 
 interface RequestParameters {
-    baseUrl: string;
+    url: string;
     method: string;
     body?: string | undefined;
     headers?: Headers;
@@ -23,7 +23,7 @@ enum StatusCode {
 export class Api implements ICandyApi {
     public async getInner() {
         const response = await this.load({
-            baseUrl: `${COMMON_URL}/get-inner`,
+            url: `${COMMON_URL}/get-inner`,
             method: Method.POST,
         });
         return response.json();
@@ -31,7 +31,7 @@ export class Api implements ICandyApi {
 
     public async changeInnerNode(changeSet: ChangeSet) {
         return await this.load({
-            baseUrl: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
+            url: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
             method: Method.POST,
             body: JSON.stringify(changeSet),
             headers: new Headers({ "Content-Type": `application/json` }),
@@ -46,12 +46,12 @@ export class Api implements ICandyApi {
     };
 
     private async load({
-        baseUrl,
+        url,
         method = Method.GET,
         body = undefined,
         headers = new Headers(),
     }: RequestParameters): Promise<Response> {
-        const response = await fetch(`${baseUrl}`, { method, body, headers, credentials: "include" });
+        const response = await fetch(`${url}`, { method, body, headers, credentials: "include" });
         this.checkStatus(response);
         return response;
     }
