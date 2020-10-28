@@ -1,5 +1,6 @@
 import { ICandyApi } from "./ICandyApi";
 import { ChangeSet } from "./ChangeSet";
+import { RouteComponentProps } from "react-router";
 
 interface RequestParameters {
     url: string;
@@ -7,9 +8,6 @@ interface RequestParameters {
     body?: string | undefined;
     headers?: Headers;
 }
-
-const COMMON_URL =
-    "http://localhost.testkontur.ru:11090/v1/ns/00000000-0000-0000-0000-000000000000/drafts/4950a505-99a7-4f34-b3c0-7653206accc8";
 
 enum Method {
     GET = "GET",
@@ -21,17 +19,17 @@ enum StatusCode {
 }
 
 export class Api implements ICandyApi {
-    public async getInner() {
+    public async getInner(match) {
         const response = await this.load({
-            url: `${COMMON_URL}/get-inner`,
+            url: `http://localhost.testkontur.ru:11090/v1/ns/${match.params.ns}/drafts/${match.params.drafts}/get-inner`,
             method: Method.POST,
         });
         return response.json();
     }
 
-    public async changeInnerNode(changeSet: ChangeSet) {
+    public async changeInnerNode(changeSet: ChangeSet, match) {
         return await this.load({
-            url: `${COMMON_URL}/presentations/inner?src=changeSet&dataVersion=0`,
+            url: `http://localhost.testkontur.ru:11090/v1/ns/${match.params.ns}/drafts/${match.params.drafts}/presentations/inner?src=changeSet&dataVersion=0`,
             method: Method.POST,
             body: JSON.stringify(changeSet),
             headers: new Headers({ "Content-Type": `application/json` }),

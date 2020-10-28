@@ -1,35 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { InnerTree } from "./components/InnerTree/InnerTree";
-import { Api } from "./api/Api";
-import { convertInnerToInnerNode } from "./domain/ConverInnerToInnerNode";
-import { Router, Switch, Route } from "react-router-dom";
-import history from "./History";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { App } from "./components/App/App";
 
-const api = new Api();
-
-async function renderInner() {
-    ReactDOM.render(<h1>Loading...</h1>, document.querySelector(`#root`));
-    const result = await api.getInner();
-
-    const inner = convertInnerToInnerNode(result);
-
-    return ReactDOM.render(
-        <Router history={history}>
-            <Switch>
-                <Route path={"/"}>
-                    <InnerTree api={api} inner={inner} />
-                </Route>
-            </Switch>
-        </Router>,
-        document.querySelector(`#root`),
-    );
-}
-
-(async function () {
-    try {
-        await renderInner();
-    } catch (err) {
-        console.error(err);
-    }
-})();
+ReactDOM.render(
+    <BrowserRouter>
+        <Switch>
+            <Route path={`/ns/:ns/drafts/:drafts`} render={routeProps => <App {...routeProps} />}></Route>
+        </Switch>
+    </BrowserRouter>,
+    document.querySelector(`#root`),
+);
