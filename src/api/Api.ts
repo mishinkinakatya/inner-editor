@@ -1,6 +1,5 @@
-import { ICandyApi } from "./ICandyApi";
+import { ICandyApi, InnerParameters } from "./ICandyApi";
 import { ChangeSet } from "./ChangeSet";
-import { RouteComponentProps } from "react-router";
 
 interface RequestParameters {
     url: string;
@@ -19,17 +18,17 @@ enum StatusCode {
 }
 
 export class Api implements ICandyApi {
-    public async getInner(match) {
+    public async getInner({ ns, drafts }: InnerParameters) {
         const response = await this.load({
-            url: `http://localhost.testkontur.ru:11090/v1/ns/${match.params.ns}/drafts/${match.params.drafts}/get-inner`,
+            url: `http://localhost.testkontur.ru:11090/v1/ns/${ns}/drafts/${drafts}/get-inner`,
             method: Method.POST,
         });
         return response.json();
     }
 
-    public async changeInnerNode(changeSet: ChangeSet, match) {
+    public async changeInnerNode(changeSet: ChangeSet, { ns, drafts }: InnerParameters) {
         return await this.load({
-            url: `http://localhost.testkontur.ru:11090/v1/ns/${match.params.ns}/drafts/${match.params.drafts}/presentations/inner?src=changeSet&dataVersion=0`,
+            url: `http://localhost.testkontur.ru:11090/v1/ns/${ns}/drafts/${drafts}/presentations/inner?src=changeSet&dataVersion=0`,
             method: Method.POST,
             body: JSON.stringify(changeSet),
             headers: new Headers({ "Content-Type": `application/json` }),

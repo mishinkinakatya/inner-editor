@@ -7,7 +7,9 @@ import { Api } from "../../api/Api";
 import { ICandyApi } from "../../api/ICandyApi";
 import { InnerTree } from "../InnerTree/InnerTree";
 
-interface AppProps {}
+interface AppProps {
+    match: { params: { ns: string; drafts: string } };
+}
 
 interface AppState {
     api: ICandyApi;
@@ -62,7 +64,7 @@ export class App extends React.PureComponent<AppProps, AppState> {
         };
 
         async function getInner() {
-            const result = await api.getInner(match);
+            const result = await api.getInner({ ns: match.params.ns, drafts: match.params.drafts });
             return convertInnerToInnerNode(result);
         }
 
@@ -109,12 +111,9 @@ export class App extends React.PureComponent<AppProps, AppState> {
                         itemName: itemName,
                         itemDescription: itemDescription,
                     }),
-
-                    match,
+                    { ns: match.params.ns, drafts: match.params.drafts },
                 );
-                if (rootNode) {
-                    changeRootNode({ ...rootNode });
-                }
+                changeRootNode({ ...rootNode });
             } catch (err) {
                 console.error(err);
             }

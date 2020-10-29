@@ -29,15 +29,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/History.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/ICandyApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ICandyApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
