@@ -2,6 +2,9 @@ import * as React from "react";
 import styles from "./NodeViewModelItem.css";
 import { PropertyDescription } from "../../domain/Inner";
 import { ChangeType } from "../../domain/CreateChangeSet";
+import { Input } from "@skbkontur/react-ui/components/Input/Input";
+import { Hyphen } from "@skbkontur/react-icons";
+import { Button } from "@skbkontur/react-ui/components/Button/Button";
 
 export interface ViewModelChanges {
     changeType: string;
@@ -18,39 +21,54 @@ interface NodeViewModelItemProps {
 interface NodeViewModelItemState {
     name: string | undefined;
     description: PropertyDescription;
+    showingButtons: boolean;
 }
 
 export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProps, NodeViewModelItemState> {
     public state = {
         name: this.props.itemName,
         description: this.props.itemDescription,
+        showingButtons: false,
     };
 
-    public render(): JSX.Element {
-        const { name, description } = this.state;
+    public render(): JSX.Element | `` {
+        const { name, description, showingButtons } = this.state;
 
-        return (
+        return name ? (
             <div className={styles.viewModelItem}>
-                <span className={styles.propertyName}>{name}: </span>
-                <input
-                    className={styles.propertyValue}
-                    value={description}
-                    onChange={this.handleChangeItemDescription}
-                />
-                <div className={styles.actionButtons}>
-                    <button className={styles.actionButton} onClick={this.handleSaveButtonClick}>
-                        Save
-                    </button>
-                    <button className={styles.actionButton} onClick={this.handleCancelButtonClick}>
-                        Cancel
-                    </button>
-                    <button className={styles.actionButton} onClick={this.handleDeleteButtonClick}>
-                        Delete
-                    </button>
+                <div className={styles.property}>
+                    <div className={styles.propertyName}>
+                        <Hyphen />
+                        <span> {name}</span>
+                    </div>
+                    <Input
+                        className={styles.propertyValue}
+                        value={description}
+                        onChange={this.handleChangeItemDescription}
+                        onFocus={this.handleChangeShowingButtons}
+                    />
                 </div>
+
+                {showingButtons && this.renderActionButtons()}
+            </div>
+        ) : ``;
+    }
+
+    private renderActionButtons() {
+        return (
+            <div className={styles.actionButtons}>
+                <Button onClick={this.handleSaveButtonClick}>Save</Button>
+                <Button onClick={this.handleCancelButtonClick}>Cancel</Button>
+                <Button onClick={this.handleDeleteButtonClick}>Delete</Button>
             </div>
         );
     }
+
+    private readonly handleChangeShowingButtons = () => {
+        this.setState({
+            showingButtons: !this.state.showingButtons,
+        });
+    };
 
     private readonly handleChangeItemDescription = (evt: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
@@ -65,8 +83,9 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         onChangeViewModelItem({
             changeType: ChangeType.CHANGED,
             itemName: name,
-            itemDescription: description,
+            itemDescription: name === "children" || name === "error" ? description.toString().split(",") : description,
         });
+        this.handleChangeShowingButtons();
     };
 
     private readonly handleDeleteButtonClick = () => {
@@ -84,5 +103,6 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         this.setState({
             description: this.props.itemDescription,
         });
+        this.handleChangeShowingButtons();
     };
 }

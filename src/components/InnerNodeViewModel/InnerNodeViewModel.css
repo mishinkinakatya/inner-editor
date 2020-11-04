@@ -1,28 +1,20 @@
 .viewModel {
+    padding-left: 30px;
+    width: 620px;
     display: inline-block;
-    border: solid 1px;
-    margin: 0 2px 2px;
-    padding: 2px;
     vertical-align: top;
-    font: 16px Arial sans-serif;
 }
-
-.switchButton {
-    display: block;
-    outline: none;
-    background-color: inherit;
-    margin-left: auto;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
+.eye{
+    float: left;
+    width: 20px;
 }
-
-.showPropsButton {
-    display: inline-block;
-    outline: none;
-    background-color: inherit;
-    width: 24px;
-    height: 24px;
-    margin-left: 2px;
+.props{
+    float: right;
+    width: 600px
+}
+.showButton{
+    font: 14px Arial sans-serif;
+    color: dodgerblue;
     cursor: pointer;
+
 }

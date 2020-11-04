@@ -43,12 +43,11 @@ export class App extends React.PureComponent<AppProps, AppState> {
                 <h1>Inner Editor</h1>
                 {rootNode ? (
                     <fieldset className={styles.app} disabled={disabled}>
-                        <InnerTree rootNode={rootNode} onChangeInnerTree={this.handleChangeInnerTree} />
+                        <InnerTree rootNode={rootNode} onChangeInnerTree={this.changeInnerTree} />
                     </fieldset>
                 ) : (
                     <h2>Loading...</h2>
                 )}
-                ;
             </>
         );
     }
@@ -57,53 +56,41 @@ export class App extends React.PureComponent<AppProps, AppState> {
         const { api } = this.state;
         const { match } = this.props;
 
-        const changeState = (inner: InnerNodeItem) => {
-            this.setState({
-                rootNode: inner,
-            });
-        };
-
         async function getInner() {
             const result = await api.getInner({ ns: match.params.ns, drafts: match.params.drafts });
             return convertInnerToInnerNode(result);
         }
 
-        (async function () {
+        (async () => {
             try {
                 const result = await getInner();
-                changeState(result);
+                this.changeRootNode(result);
             } catch (err) {
                 console.error(err);
             }
         })();
     };
 
-    private readonly handleChangeInnerTree = ({ nodeNames, changeType, itemName, itemDescription }: NodeChanges) => {
+    private readonly changeInnerTree = ({ nodeNames, changeType, itemName, itemDescription }: NodeChanges) => {
         const { rootNode, api } = this.state;
         const { match } = this.props;
 
-        const changeRootNode = (inner: InnerNodeItem) => {
-            this.setState({
-                rootNode: this.updateRootNode({
-                    inner: inner,
+        const changeAppState = () => {
+            this.changeRootNode(
+                this.updateRootNode({
+                    inner: rootNode,
                     nodeNames: nodeNames,
                     changeType: changeType,
                     itemName: itemName,
                     itemDescription: itemDescription,
                 }),
-                disabled: false,
-            });
+            );
+            this.changeDisabledState(false);
         };
 
-        const disableEditor = () => {
-            this.setState({
-                disabled: true,
-            });
-        };
-
-        (async function () {
+        (async () => {
             try {
-                disableEditor();
+                this.changeDisabledState(true);
                 await api.changeInnerNode(
                     createChangeSet({
                         nodeNames: nodeNames,
@@ -113,7 +100,7 @@ export class App extends React.PureComponent<AppProps, AppState> {
                     }),
                     { ns: match.params.ns, drafts: match.params.drafts },
                 );
-                changeRootNode({ ...rootNode });
+                changeAppState();
             } catch (err) {
                 console.error(err);
             }
@@ -145,4 +132,16 @@ export class App extends React.PureComponent<AppProps, AppState> {
 
         return inner;
     };
+
+    private changeRootNode(inner: InnerNodeItem) {
+        this.setState({
+            rootNode: inner,
+        });
+    }
+
+    private changeDisabledState(isDisabled: boolean) {
+        this.setState({
+            disabled: isDisabled,
+        });
+    }
 }

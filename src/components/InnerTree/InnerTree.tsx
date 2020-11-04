@@ -5,7 +5,7 @@ import styles from "./InnerTree.css";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 
 interface InnerTreeProps {
-    rootNode: InnerNodeItem;
+    rootNode: InnerNodeItem | undefined;
     onChangeInnerTree({ nodeNames, changeType, itemName, itemDescription }: NodeChanges): void;
 }
 

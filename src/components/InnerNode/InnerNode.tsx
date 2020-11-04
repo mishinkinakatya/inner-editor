@@ -4,6 +4,7 @@ import { InnerNodeItem } from "../../domain/Inner";
 import styles from "./InnerNode.css";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 import { ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
+import { ArrowTriangleDown, ArrowTriangleRight } from "@skbkontur/react-icons";
 
 interface InnerNodeProps {
     node: InnerNodeItem;
@@ -19,32 +20,35 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         expanded: true,
     };
 
-    public render(): JSX.Element {
+    public render() {
         const { node } = this.props;
         const { expanded } = this.state;
 
         return (
             <div className={styles.innerNode}>
-                <button className={styles.expandButton} onClick={this.handleChangeExpanded}>
-                    {expanded || node.children.length === 0 ? "◢" : "▷"}
-                </button>
-                <input className={styles.nodeName} value={node.name} readOnly={true} />
-
-                {node.viewModel && (
-                    <InnerNodeViewModel nodeViewModel={node.viewModel} onChangeViewModel={this.handleChangeViewModel} />
-                )}
-
-                {expanded && node.children
-                    ? node.children.map(child => {
-                          return (
-                              <InnerNode
-                                  key={child.name}
-                                  node={child}
-                                  onChangeInnerNode={this.handleChangeChildrenModel}
-                              />
-                          );
-                      })
-                    : ``}
+                <div className={styles.label}>
+                    <span onClick={this.handleChangeExpanded}>
+                        {expanded || node.children.length === 0 ? <ArrowTriangleDown /> : <ArrowTriangleRight />}
+                    </span>
+                    <span className={styles.nodeName}>{node.name}</span>
+                    {node.viewModel && (
+                        <InnerNodeViewModel
+                            nodeViewModel={node.viewModel}
+                            onChangeViewModel={this.handleChangeViewModel}
+                        />
+                    )}
+                </div>
+                {expanded &&
+                    node.children &&
+                    node.children.map(child => {
+                        return (
+                            <InnerNode
+                                key={child.name}
+                                node={child}
+                                onChangeInnerNode={this.handleChangeChildrenModel}
+                            />
+                        );
+                    })}
             </div>
         );
     }

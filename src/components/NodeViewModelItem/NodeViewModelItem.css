@@ -1,23 +1,20 @@
 .viewModelItem {
-    display: block;
-    margin: 5px;
+    width: 600px;
+    /*display: inline-block;*/
 }
-
-.propertyName {
-    font-weight: bold;
-}
-.propertyValue {
-    font: 16px Arial sans-serif;
-    width: auto;
-}
-.actionButtons{
+.property{
+    margin: auto;
     display: inline;
 }
-.actionButton {
-    text-align: center;
-    border: none;
-    background: none;
-    width: 55px;
-    color: dodgerblue;
-    cursor: pointer;
+.propertyName {
+    width: 140px;
+    float: left;
+    font-style: italic;
+}
+.propertyValue {
+    margin: 0 200px 0 140px;
+}
+.actionButtons{
+    width: 200px;
+    float: right;
 }

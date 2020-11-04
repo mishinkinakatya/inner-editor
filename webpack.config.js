@@ -11,12 +11,12 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx|ts|tsx)$/,
-                include: path.join(__dirname, `src`),
+                include: [path.join(__dirname, `src`), /@skbkontur/],
                 use: `babel-loader`,
             },
             {
                 test: /\.css$/,
-                include: path.join(__dirname, `src`),
+                include: [path.join(__dirname, `src`), /@skbkontur/],
                 use: [
                     `style-loader`,
                     {
@@ -24,6 +24,15 @@ module.exports = {
                         options: {
                             modules: true,
                         },
+                    },
+                ],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: { name: "public/fonts/[hash].[ext]" },
                     },
                 ],
             },

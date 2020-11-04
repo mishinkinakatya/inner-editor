@@ -9,44 +9,65 @@ interface InnerNodeViewModelProps {
 }
 
 interface InnerNodeViewModelState {
-    visible: boolean;
+    visibility: boolean;
 }
 
 export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelProps, InnerNodeViewModelState> {
     public state = {
-        visible: false,
+        visibility: false,
     };
 
     public render(): JSX.Element {
         const { nodeViewModel } = this.props;
-        const { visible } = this.state;
+        const { visibility } = this.state;
 
-        return visible ? (
+        return (
             <div className={styles.viewModel}>
-                <div>
-                    <button className={styles.switchButton} onClick={this.handleChangeVisibleOfViewModel}>
-                        ×
-                    </button>
-                    {Object.keys(nodeViewModel).map(item => (
-                        <NodeViewModelItem
-                            key={item}
-                            itemName={item}
-                            itemDescription={nodeViewModel[item]}
-                            onChangeViewModelItem={this.handleChangeViewModelItem}
-                        />
-                    ))}
-                </div>
+                {visibility || Object.keys(nodeViewModel).length === 1 ? (
+                    <div>
+                        {Object.keys(nodeViewModel).map(item => (
+                            <NodeViewModelItem
+                                key={item}
+                                itemName={item}
+                                itemDescription={nodeViewModel[item]}
+                                onChangeViewModelItem={this.handleChangeViewModelItem}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    Object.hasOwnProperty.call(nodeViewModel, "value") && (
+                        <div>
+                            <NodeViewModelItem
+                                itemName="value"
+                                itemDescription={nodeViewModel["value"]}
+                                onChangeViewModelItem={this.handleChangeViewModelItem}
+                            />
+                        </div>
+                    )
+                )}
+
+                {this.renderActionButtons(visibility, nodeViewModel)}
             </div>
-        ) : (
-            <button className={styles.showPropsButton} onClick={this.handleChangeVisibleOfViewModel}>
-                👁
-            </button>
         );
     }
 
-    private readonly handleChangeVisibleOfViewModel = () => {
+    private renderActionButtons(visibility: boolean, nodeViewModel: NodeViewModel) {
+        return visibility ? (
+            <a className={styles.showButton} onClick={this.handleChangePropsVisibility}>
+                Show less
+            </a>
+        ) : (
+            Object.keys(nodeViewModel).length > 1 && (
+                <a className={styles.showButton} onClick={this.handleChangePropsVisibility}>
+                    Show more
+                </a>
+            )
+        );
+    }
+
+    private readonly handleChangePropsVisibility = () => {
         this.setState({
-            visible: !this.state.visible,
+            visibility: !this.state.visibility,
         });
     };
 

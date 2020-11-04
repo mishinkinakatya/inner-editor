@@ -29,10 +29,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b282437-e411-415f-9da9-75bbe5cdab03" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/App/App.stories.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/Api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/ICandyApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/ICandyApi.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,24 +93,24 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\domain" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModelItem" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
-    </key>
-    <key name="es6.move.members.recent.items">
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\Inner.ts" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ChangeSet.ts" />
-      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ICandyApi.ts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\App" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNode" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerTree" />
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\stories" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\Inner.ts" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ChangeSet.ts" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api\ICandyApi.ts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\api" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\domain" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModelItem" />
+      <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\components\InnerNodeViewModel" />
     </key>
   </component>
   <component name="RunManager" selected="Mocha.Create Change Set.Remove view model item">
@@ -200,11 +214,19 @@
       <workItem from="1602434823398" duration="4233000" />
       <workItem from="1602492681419" duration="63533000" />
       <workItem from="1603690638781" duration="26068000" />
+      <workItem from="1604289986698" duration="28242000" />
+      <workItem from="1604381201159" duration="15582000" />
+      <workItem from="1604507756081" duration="4813000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+    <option name="includedJSSourcePackages">
+      <set>
+        <option value="@skbkontur/react-ui" />
+      </set>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -259,32 +281,32 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="535" height="466" key="DebuggerActiveHint/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602009938563" />
-    <state width="717" height="922" key="GridCell.Tab.0.bottom" timestamp="1603879828543">
+    <state width="733" height="922" key="GridCell.Tab.0.bottom" timestamp="1603960090306">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="709" height="904" key="GridCell.Tab.0.bottom/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603775992996" />
-    <state width="717" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603879828543" />
+    <state width="733" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
     <state width="657" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1603684481346" />
-    <state width="717" height="922" key="GridCell.Tab.0.center" timestamp="1603879828543">
+    <state width="733" height="922" key="GridCell.Tab.0.center" timestamp="1603960090306">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="709" height="904" key="GridCell.Tab.0.center/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603775992996" />
-    <state width="717" height="922" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603879828543" />
+    <state width="733" height="922" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
     <state width="657" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1603684481345" />
-    <state width="717" height="922" key="GridCell.Tab.0.left" timestamp="1603879828543">
+    <state width="733" height="922" key="GridCell.Tab.0.left" timestamp="1603960090306">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="709" height="904" key="GridCell.Tab.0.left/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603775992996" />
-    <state width="717" height="922" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603879828543" />
+    <state width="733" height="922" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
     <state width="657" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1603684481340" />
-    <state width="717" height="922" key="GridCell.Tab.0.right" timestamp="1603879828543">
+    <state width="733" height="922" key="GridCell.Tab.0.right" timestamp="1603960090306">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="709" height="904" key="GridCell.Tab.0.right/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1603775992996" />
-    <state width="717" height="922" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603879828543" />
+    <state width="733" height="922" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
     <state width="657" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1603684481346" />
     <state width="1237" height="33" key="GridCell.Tab.1.bottom" timestamp="1603684481350">
