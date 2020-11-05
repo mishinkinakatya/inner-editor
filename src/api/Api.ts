@@ -24,16 +24,6 @@ export class Api implements ICandyApi {
             url: `http://localhost.testkontur.ru:11090/v1/ns/${ns}/drafts/${drafts}/get-inner`,
             method: Method.POST,
         });
-        // const response = await this.load({
-        //     url: `http://localhost.testkontur.ru:11090/v1/ns/00000000-0000-0000-0000-000000000000/drafts/4950a505-99a7-4f34-b3c0-7653206accc8/presentations/inner?src=changeSet&dataVersion=0`,
-        //     method: Method.POST,
-        //     body: JSON.stringify({
-        //         added: [],
-        //         changed: { "Root/Items.error": "wwwww", "Root/ItemsWithNesting.children": "lllll"},
-        //         removed: [],
-        //     }),
-        //     headers: new Headers({ "Content-Type": `application/json` }),
-        // });
 
         return response.json();
     }

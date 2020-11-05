@@ -39,16 +39,16 @@ export class App extends React.PureComponent<AppProps, AppState> {
         const { rootNode, disabled } = this.state;
 
         return (
-            <>
+            <div className={styles.innerEditor}>
                 <h1>Inner Editor</h1>
                 {rootNode ? (
-                    <fieldset className={styles.app} disabled={disabled}>
+                    <fieldset className={styles.inner} disabled={disabled}>
                         <InnerTree rootNode={rootNode} onChangeInnerTree={this.changeInnerTree} />
                     </fieldset>
                 ) : (
                     <h2>Loading...</h2>
                 )}
-            </>
+            </div>
         );
     }
 

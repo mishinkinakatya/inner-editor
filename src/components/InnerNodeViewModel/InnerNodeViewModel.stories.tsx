@@ -11,6 +11,7 @@ export const TwoProperties = (): JSX.Element => (
             value: "FirstValue",
             error: ["FirstError"],
         }}
+        visibility={true}
         onChangeViewModel={action("onChangeViewModel")}
     />
 );
@@ -19,31 +20,25 @@ export const OnePropertyValue = (): JSX.Element => (
         nodeViewModel={{
             value: "FirstValue",
         }}
+        visibility={true}
         onChangeViewModel={action("onChangeViewModel")}
     />
 );
-export const onePropertyChildren = (): JSX.Element => (
+export const onePropertyNotValueVisible = (): JSX.Element => (
     <InnerNodeViewModel
         nodeViewModel={{
             children: ["0", "1"],
         }}
+        visibility={true}
         onChangeViewModel={action("onChangeViewModel")}
     />
 );
-export const oneAnyProperty = (): JSX.Element => (
-    <InnerNodeViewModel
-        nodeViewModel={{
-            prop: "some prop",
-        }}
-        onChangeViewModel={action("onChangeViewModel")}
-    />
-);
-export const twoPropertiesWithoutAny = (): JSX.Element => (
+export const onePropertyNotValueNoVisible = (): JSX.Element => (
     <InnerNodeViewModel
         nodeViewModel={{
             children: ["0", "1"],
-            error: ["FirstError"],
         }}
+        visibility={false}
         onChangeViewModel={action("onChangeViewModel")}
     />
 );

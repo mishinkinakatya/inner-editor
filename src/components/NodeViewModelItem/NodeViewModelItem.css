@@ -1,20 +1,21 @@
-.viewModelItem {
-    width: 600px;
-    /*display: inline-block;*/
+.viewModelItem{
+    margin: 1px;
 }
-.property{
-    margin: auto;
-    display: inline;
+.hyphen{
+    display: inline-block;
+    vertical-align: top;
 }
-.propertyName {
-    width: 140px;
-    float: left;
-    font-style: italic;
+.itemName{
+    display: inline-block;
+    vertical-align: top;
+    width: 80px;
+    margin-left: 4px;
 }
-.propertyValue {
-    margin: 0 200px 0 140px;
+.itemDescription{
+    display: inline-block;
+    margin-left: 15px;
 }
 .actionButtons{
-    width: 200px;
-    float: right;
+    display: inline-block;
+    margin-left: 4px;
 }

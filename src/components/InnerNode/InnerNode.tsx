@@ -4,7 +4,7 @@ import { InnerNodeItem } from "../../domain/Inner";
 import styles from "./InnerNode.css";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 import { ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
-import { ArrowTriangleDown, ArrowTriangleRight } from "@skbkontur/react-icons";
+import { ArrowTriangleDown, ArrowTriangleRight, Edit } from "@skbkontur/react-icons";
 
 interface InnerNodeProps {
     node: InnerNodeItem;
@@ -13,49 +13,76 @@ interface InnerNodeProps {
 
 interface InnerNodeState {
     expanded: boolean;
+    visibility: boolean;
 }
 
 export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeState> {
     public state = {
         expanded: true,
+        visibility: false,
     };
 
     public render() {
         const { node } = this.props;
-        const { expanded } = this.state;
+        const { expanded, visibility } = this.state;
 
         return (
-            <div className={styles.innerNode}>
-                <div className={styles.label}>
-                    <span onClick={this.handleChangeExpanded}>
+            <div className={styles.root}>
+                {node.children.length !== 0 && <div className={styles.leftLine}></div>}
+                <div className={styles.line1}>
+                    <div className={styles.expandButton} onClick={this.handleChangeExpanded}>
                         {expanded || node.children.length === 0 ? <ArrowTriangleDown /> : <ArrowTriangleRight />}
-                    </span>
-                    <span className={styles.nodeName}>{node.name}</span>
-                    {node.viewModel && (
-                        <InnerNodeViewModel
-                            nodeViewModel={node.viewModel}
-                            onChangeViewModel={this.handleChangeViewModel}
-                        />
-                    )}
-                </div>
-                {expanded &&
-                    node.children &&
-                    node.children.map(child => {
-                        return (
-                            <InnerNode
-                                key={child.name}
-                                node={child}
-                                onChangeInnerNode={this.handleChangeChildrenModel}
+                    </div>
+                    <div className={styles.nodeName} onClick={this.handleChangeExpanded}>
+                        {node.name}
+                    </div>
+                    <div className={styles.editButton} onClick={this.handleChangePropsVisibility}>
+                        {this.isEditButtonVisible(node) && <Edit />}
+                    </div>
+                    <div className={styles.props}>
+                        {node.viewModel && (
+                            <InnerNodeViewModel
+                                nodeViewModel={node.viewModel}
+                                visibility={visibility}
+                                onChangeViewModel={this.handleChangeViewModel}
                             />
-                        );
-                    })}
+                        )}
+                    </div>
+                </div>
+                <div className={styles.children}>
+                    {expanded &&
+                        node.children &&
+                        node.children.map(child => {
+                            return (
+                                <InnerNode
+                                    key={child.name}
+                                    node={child}
+                                    onChangeInnerNode={this.handleChangeChildrenModel}
+                                />
+                            );
+                        })}
+                </div>
             </div>
+        );
+    }
+
+    private isEditButtonVisible(node: InnerNodeItem) {
+        return (
+            node.viewModel &&
+            (Object.keys(node.viewModel).length > 1 ||
+                (Object.keys(node.viewModel).length === 1 && Object.keys(node.viewModel)[0] !== "value"))
         );
     }
 
     private readonly handleChangeExpanded = () => {
         this.setState({
             expanded: !this.state.expanded,
+        });
+    };
+
+    private readonly handleChangePropsVisibility = () => {
+        this.setState({
+            visibility: !this.state.visibility,
         });
     };
 

@@ -1,32 +1,35 @@
-.innerNode {
-    display: block; /* растянем до правого края блока */
-    margin: 5px 0 5px 30px;
-    /*background-color: transparent;*/
-    border-left: solid lightgray; /* цвет линий */
-    border-width: 0 0 0 2px; /* границы: низ и лево */
-
-    /*padding-left: 15px;*/
-    /*margin: 5px;*/
-    /*width: 900px;*/
-    /*vertical-align: top;*/
-    /*border-left: 1px solid red;*/
-}
-.label{
-    display: block;
+.root{
     position: relative;
-    /*top: .95em; !* смещаем узел на середину линии *!*/
-    /*background-color: #fff; !* закраска в цвет фона обязательна иначе будет видно линию *!*/
-    margin: 0 0 0 -9px; /* делаем промежуток между узлами, отодвигаем левее  */
-    padding: 0 0 5px; /* небольшой отступ от линии */
 }
-.nodeName {
-    font: 18px Arial sans-serif;
-    padding-left: 5px;
+.leftLine{
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    bottom: 0;
+    width: 2px;
+    background-color: #e0e0e0;
 }
-.innerNode.innerNode {
-    /*margin: 0 0 0 30px;*/
-    /*border-left: 1px solid silver; !* цвет вертикальной линии между узлами *!*/
+.expandButton{
+    display: inline-block;
 }
-.innerNode .innerNode.last {
-    border: none;
+.nodeName{
+    display: inline-block;
+    margin-left: 4px;
+    cursor: pointer;
+}
+.editButton{
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.props{
+    display: inline-block;
+    margin-left: 20px;
+}
+.children{
+    margin-left: 20px;
+}
+.line1{
+    margin: 5px auto;
 }

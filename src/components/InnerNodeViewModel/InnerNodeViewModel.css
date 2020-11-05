@@ -1,20 +1,4 @@
 .viewModel {
-    padding-left: 30px;
-    width: 620px;
     display: inline-block;
     vertical-align: top;
-}
-.eye{
-    float: left;
-    width: 20px;
-}
-.props{
-    float: right;
-    width: 600px
-}
-.showButton{
-    font: 14px Arial sans-serif;
-    color: dodgerblue;
-    cursor: pointer;
-
 }

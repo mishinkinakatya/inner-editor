@@ -3,7 +3,7 @@ import styles from "./NodeViewModelItem.css";
 import { PropertyDescription } from "../../domain/Inner";
 import { ChangeType } from "../../domain/CreateChangeSet";
 import { Input } from "@skbkontur/react-ui/components/Input/Input";
-import { Hyphen } from "@skbkontur/react-icons";
+import { Delete, Hyphen, Ok, Undo } from "@skbkontur/react-icons";
 import { Button } from "@skbkontur/react-ui/components/Button/Button";
 
 export interface ViewModelChanges {
@@ -36,30 +36,34 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
 
         return name ? (
             <div className={styles.viewModelItem}>
-                <div className={styles.property}>
-                    <div className={styles.propertyName}>
-                        <Hyphen />
-                        <span> {name}</span>
-                    </div>
+                <div className={styles.hyphen}>
+                    <Hyphen />
+                </div>
+                <div className={styles.itemName}>{name}</div>
+                <div className={styles.itemDescription}>
                     <Input
                         className={styles.propertyValue}
                         value={description}
                         onChange={this.handleChangeItemDescription}
-                        onFocus={this.handleChangeShowingButtons}
                     />
                 </div>
-
-                {showingButtons && this.renderActionButtons()}
+                <div className={styles.actionButtons}>{this.renderActionButtons(showingButtons)}</div>
             </div>
-        ) : ``;
+        ) : (
+            ``
+        );
     }
 
-    private renderActionButtons() {
+    private renderActionButtons(showingButtons: boolean) {
         return (
             <div className={styles.actionButtons}>
-                <Button onClick={this.handleSaveButtonClick}>Save</Button>
-                <Button onClick={this.handleCancelButtonClick}>Cancel</Button>
-                <Button onClick={this.handleDeleteButtonClick}>Delete</Button>
+                <Button use={"link"} onClick={this.handleDeleteButtonClick} icon={<Delete />} />
+                {showingButtons && (
+                    <>
+                        <Button use={"link"} onClick={this.handleSaveButtonClick} icon={<Ok />} />
+                        <Button use={"link"} onClick={this.handleCancelButtonClick} icon={<Undo />} />
+                    </>
+                )}
             </div>
         );
     }
@@ -73,6 +77,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
     private readonly handleChangeItemDescription = (evt: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
             description: evt.target.value,
+            showingButtons: true,
         });
     };
 
@@ -92,11 +97,15 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         const { onChangeViewModelItem } = this.props;
         const { name } = this.state;
 
-        onChangeViewModelItem({ changeType: ChangeType.REMOVED, itemName: name });
+        const deleteProp = () => {
+            onChangeViewModelItem({ changeType: ChangeType.REMOVED, itemName: name });
 
-        this.setState({
-            name: undefined,
-        });
+            this.setState({
+                name: undefined,
+            });
+        };
+
+        confirm("Вы действительно хотите удалить свойство?") ? deleteProp() : this.handleCancelButtonClick;
     };
 
     private readonly handleCancelButtonClick = () => {

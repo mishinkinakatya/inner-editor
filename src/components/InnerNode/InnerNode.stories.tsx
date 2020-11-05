@@ -1,22 +1,87 @@
 import * as React from "react";
 import { Meta } from "@storybook/react/types-6-0";
-import { InnerNodeItem } from "../../domain/Inner";
 import { InnerNode } from "./InnerNode";
 import { action } from "@storybook/addon-actions";
 
 export default { title: "Inner Editor/InnerNode" } as Meta;
 
-const testInner: InnerNodeItem = {
-    name: "First ",
-    viewModel: {
-        value: "FirstValue",
-        error: ["FirstError"],
-    },
-    children: [],
-};
-
 export const InnerNodeComponent = (): JSX.Element => (
-    <InnerNode node={testInner} onChangeInnerNode={action("onChangeInnerNode")} />
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: {
+                value: "FirstValue",
+                error: ["FirstError"],
+            },
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
+
+export const SomePropsWithValue = (): JSX.Element => (
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: {
+                value: "FirstValue",
+                error: ["FirstError"],
+            },
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
+
+export const SomePropsWithoutValue = (): JSX.Element => (
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: {
+                children: ["FirstChildren"],
+                error: ["FirstError"],
+            },
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
+
+export const OnePropNotValue = (): JSX.Element => (
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: {
+                error: ["FirstError"],
+            },
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
+
+export const OnlyValueProp = (): JSX.Element => (
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: {
+                value: "FirstValue",
+            },
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
+);
+
+export const WithoutProps = (): JSX.Element => (
+    <InnerNode
+        node={{
+            name: "First ",
+            viewModel: undefined,
+            children: [],
+        }}
+        onChangeInnerNode={action("onChangeInnerNode")}
+    />
 );
 
 export const LongNodeName = (): JSX.Element => (
@@ -56,21 +121,17 @@ export const ManyItems = (): JSX.Element => (
     <InnerNode
         node={{
             name: "R",
-            viewModel: undefined,
+            viewModel: { resourcesHash: 111 },
             children: [
                 {
                     name: "AAA",
                     viewModel: {
-                        value: "FirstValue",
                         error: ["FirstError"],
                     },
                     children: [
                         {
                             name: "CCC",
-                            viewModel: {
-                                value: "ThirdValue",
-                                error: ["ThirdError"],
-                            },
+                            viewModel: undefined,
                             children: [
                                 {
                                     name: "DDD",

@@ -1,0 +1,9 @@
+html, body, h1 {
+    font-family: "Segoe UI", "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+h1{
+    font-size: 28px;
+    line-height: 36px;
+}

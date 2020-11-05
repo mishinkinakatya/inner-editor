@@ -1,4 +1,8 @@
-.app {
+.innerEditor{
+    margin: 10px;
+}
+.inner {
     border: none;
+    margin: 10px;
 }
 

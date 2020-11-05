@@ -1,7 +1,6 @@
 import * as React from "react";
 import { InnerNode } from "../InnerNode/InnerNode";
 import { InnerNodeItem } from "../../domain/Inner";
-import styles from "./InnerTree.css";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 
 interface InnerTreeProps {
@@ -13,11 +12,7 @@ export class InnerTree extends React.PureComponent<InnerTreeProps> {
     public render(): JSX.Element {
         const { rootNode } = this.props;
 
-        return (
-            <div className={styles.innerTree}>
-                <InnerNode key={rootNode.name} node={rootNode} onChangeInnerNode={this.handleChangeInnerNode} />
-            </div>
-        );
+        return <InnerNode key={rootNode.name} node={rootNode} onChangeInnerNode={this.handleChangeInnerNode} />;
     }
 
     private readonly handleChangeInnerNode = ({ nodeNames, changeType, itemName, itemDescription }: NodeChanges) => {
