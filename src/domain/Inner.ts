@@ -4,7 +4,7 @@ export interface InnerNodeItem {
     viewModel: undefined | NodeViewModel;
 }
 
-export type PropertyDescription = number | string | string[];
+export type PropertyDescription = number | string | number[] | string[];
 
 export interface NodeViewModel {
     [key: string]: PropertyDescription;

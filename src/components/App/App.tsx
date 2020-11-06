@@ -17,7 +17,7 @@ interface AppState {
     disabled: boolean;
 }
 interface InnerChanges {
-    inner: InnerNodeItem;
+    inner: InnerNodeItem | undefined;
     nodeNames: Path;
     changeType: string;
     itemName: string;
@@ -113,16 +113,16 @@ export class App extends React.PureComponent<AppProps, AppState> {
         changeType,
         itemName,
         itemDescription,
-    }: InnerChanges): InnerNodeItem => {
+    }: InnerChanges): InnerNodeItem | undefined => {
         let updatedNode = inner;
         let nodeNumber = 1;
 
         while (nodeNumber < nodeNames.length) {
-            const newNode = updatedNode.children.find(x => x.name === nodeNames[nodeNumber]);
+            const newNode = updatedNode && updatedNode.children.find(x => x.name === nodeNames[nodeNumber]);
             updatedNode = newNode ? newNode : updatedNode;
             nodeNumber++;
         }
-        if (updatedNode.viewModel) {
+        if (updatedNode && updatedNode.viewModel) {
             if (changeType === ChangeType.CHANGED && itemDescription) {
                 updatedNode.viewModel[itemName] = itemDescription;
             } else if (changeType === ChangeType.REMOVED) {
@@ -133,7 +133,7 @@ export class App extends React.PureComponent<AppProps, AppState> {
         return inner;
     };
 
-    private changeRootNode(inner: InnerNodeItem) {
+    private changeRootNode(inner: InnerNodeItem | undefined) {
         this.setState({
             rootNode: inner,
         });

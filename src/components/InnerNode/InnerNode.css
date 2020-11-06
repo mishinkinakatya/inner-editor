@@ -12,11 +12,15 @@
 }
 .expandButton{
     display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
 }
 .nodeName{
     display: inline-block;
     margin-left: 4px;
     cursor: pointer;
+    color: #1D85D0;
 }
 .editButton{
     display: inline-block;

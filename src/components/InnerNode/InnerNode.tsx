@@ -28,14 +28,15 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
 
         return (
             <div className={styles.root}>
-                {node.children.length !== 0 && <div className={styles.leftLine}></div>}
+                {this.hasChildren() && <div className={styles.leftLine}></div>}
                 <div className={styles.line1}>
-                    <div className={styles.expandButton} onClick={this.handleChangeExpanded}>
-                        {expanded || node.children.length === 0 ? <ArrowTriangleDown /> : <ArrowTriangleRight />}
-                    </div>
-                    <div className={styles.nodeName} onClick={this.handleChangeExpanded}>
-                        {node.name}
-                    </div>
+                    {this.hasChildren() && (
+                        <div className={styles.expandButton} onClick={this.handleChangeExpanded}>
+                            {expanded ? <ArrowTriangleDown /> : <ArrowTriangleRight />}
+                        </div>
+                    )}
+
+                    <div className={styles.nodeName}>{node.name}</div>
                     <div className={styles.editButton} onClick={this.handleChangePropsVisibility}>
                         {this.isEditButtonVisible(node) && <Edit />}
                     </div>
@@ -64,6 +65,11 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
                 </div>
             </div>
         );
+    }
+
+    private hasChildren() {
+        const { node } = this.props;
+        return node.children.length !== 0;
     }
 
     private isEditButtonVisible(node: InnerNodeItem) {

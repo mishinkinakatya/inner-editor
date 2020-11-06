@@ -27,7 +27,9 @@ interface NodeViewModelItemState {
 export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProps, NodeViewModelItemState> {
     public state = {
         name: this.props.itemName,
-        description: this.props.itemDescription,
+        description: Array.isArray(this.props.itemDescription)
+            ? this.props.itemDescription.join(", ")
+            : this.props.itemDescription,
         showingButtons: false,
     };
 
@@ -39,9 +41,10 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
                 <div className={styles.hyphen}>
                     <Hyphen />
                 </div>
-                <div className={styles.itemName}>{name}</div>
+                <div className={styles.itemName}>{name} : </div>
                 <div className={styles.itemDescription}>
                     <Input
+                        borderless={true}
                         className={styles.propertyValue}
                         value={description}
                         onChange={this.handleChangeItemDescription}
@@ -57,11 +60,19 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
     private renderActionButtons(showingButtons: boolean) {
         return (
             <div className={styles.actionButtons}>
-                <Button use={"link"} onClick={this.handleDeleteButtonClick} icon={<Delete />} />
+                {!showingButtons && (
+                    <div className={styles.actionButton}>
+                        <Button use={"link"} onClick={this.handleDeleteButtonClick} icon={<Delete />} />
+                    </div>
+                )}
                 {showingButtons && (
                     <>
-                        <Button use={"link"} onClick={this.handleSaveButtonClick} icon={<Ok />} />
-                        <Button use={"link"} onClick={this.handleCancelButtonClick} icon={<Undo />} />
+                        <div className={styles.actionButton}>
+                            <Button use={"link"} onClick={this.handleSaveButtonClick} icon={<Ok />} />
+                        </div>
+                        <div className={styles.actionButton}>
+                            <Button use={"link"} onClick={this.handleCancelButtonClick} icon={<Undo />} />
+                        </div>
                     </>
                 )}
             </div>

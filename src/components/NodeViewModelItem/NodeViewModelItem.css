@@ -1,14 +1,12 @@
 .viewModelItem{
     margin: 1px;
+    /*vertical-align: baseline;*/
 }
 .hyphen{
     display: inline-block;
-    vertical-align: top;
 }
 .itemName{
     display: inline-block;
-    vertical-align: top;
-    width: 80px;
     margin-left: 4px;
 }
 .itemDescription{
@@ -18,4 +16,8 @@
 .actionButtons{
     display: inline-block;
     margin-left: 4px;
+}
+.actionButton{
+    display: inline-block;
+    margin: 0 5px;
 }
