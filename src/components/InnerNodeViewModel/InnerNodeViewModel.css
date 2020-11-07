@@ -1,4 +1,5 @@
 .viewModel {
     display: inline-block;
-    vertical-align: baseline;
+    vertical-align: top;
+    margin-top: -6px;
 }

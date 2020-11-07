@@ -4,7 +4,7 @@ import { InnerNodeItem } from "../../domain/Inner";
 import { NodeChanges } from "../../domain/CreateChangeSet";
 
 interface InnerTreeProps {
-    rootNode: InnerNodeItem | undefined;
+    rootNode: InnerNodeItem;
     onChangeInnerTree({ nodeNames, changeType, itemName, itemDescription }: NodeChanges): void;
 }
 

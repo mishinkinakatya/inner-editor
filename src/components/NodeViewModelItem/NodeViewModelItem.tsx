@@ -22,35 +22,39 @@ interface NodeViewModelItemState {
     name: string | undefined;
     description: PropertyDescription;
     showingButtons: boolean;
+    hovered: boolean;
 }
 
 export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProps, NodeViewModelItemState> {
     public state = {
         name: this.props.itemName,
-        description: Array.isArray(this.props.itemDescription)
-            ? this.props.itemDescription.join(", ")
-            : this.props.itemDescription,
+        description: this.props.itemDescription,
         showingButtons: false,
+        hovered: false,
     };
 
     public render(): JSX.Element | `` {
-        const { name, description, showingButtons } = this.state;
+        const { name, description, showingButtons, hovered } = this.state;
 
         return name ? (
-            <div className={styles.viewModelItem}>
+            <div
+                className={styles.viewModelItem}
+                onMouseEnter={this.handleHoverProp}
+                onMouseLeave={this.handleHoverProp}
+            >
                 <div className={styles.hyphen}>
                     <Hyphen />
                 </div>
                 <div className={styles.itemName}>{name} : </div>
                 <div className={styles.itemDescription}>
                     <Input
-                        borderless={true}
+                        borderless={hovered ? false : true}
                         className={styles.propertyValue}
                         value={description}
                         onChange={this.handleChangeItemDescription}
                     />
                 </div>
-                <div className={styles.actionButtons}>{this.renderActionButtons(showingButtons)}</div>
+                {hovered && <div className={styles.actionButtons}>{this.renderActionButtons(showingButtons)}</div>}
             </div>
         ) : (
             ``
@@ -62,22 +66,40 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
             <div className={styles.actionButtons}>
                 {!showingButtons && (
                     <div className={styles.actionButton}>
-                        <Button use={"link"} onClick={this.handleDeleteButtonClick} icon={<Delete />} />
+                        <Button
+                            use={"link"}
+                            onClick={this.handleDeleteButtonClick}
+                            icon={<Delete color={"#000000"} size={14} />}
+                        />
                     </div>
                 )}
                 {showingButtons && (
                     <>
                         <div className={styles.actionButton}>
-                            <Button use={"link"} onClick={this.handleSaveButtonClick} icon={<Ok />} />
+                            <Button
+                                use={"link"}
+                                onClick={this.handleSaveButtonClick}
+                                icon={<Ok color={"#000000"} size={14} />}
+                            />
                         </div>
                         <div className={styles.actionButton}>
-                            <Button use={"link"} onClick={this.handleCancelButtonClick} icon={<Undo />} />
+                            <Button
+                                use={"link"}
+                                onClick={this.handleCancelButtonClick}
+                                icon={<Undo color={"#000000"} size={14} />}
+                            />
                         </div>
                     </>
                 )}
             </div>
         );
     }
+
+    private readonly handleHoverProp = () => {
+        this.setState({
+            hovered: !this.state.hovered,
+        });
+    };
 
     private readonly handleChangeShowingButtons = () => {
         this.setState({

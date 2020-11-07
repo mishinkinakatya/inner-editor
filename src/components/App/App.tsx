@@ -13,7 +13,7 @@ interface AppProps {
 
 interface AppState {
     api: ICandyApi;
-    rootNode: InnerNodeItem | undefined;
+    rootNode?: InnerNodeItem;
     disabled: boolean;
 }
 interface InnerChanges {
@@ -25,9 +25,8 @@ interface InnerChanges {
 }
 
 export class App extends React.PureComponent<AppProps, AppState> {
-    public state = {
+    public state: AppState = {
         api: new Api(),
-        rootNode: undefined,
         disabled: false,
     };
 

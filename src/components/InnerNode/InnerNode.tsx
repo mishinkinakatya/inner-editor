@@ -28,17 +28,17 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
 
         return (
             <div className={styles.root}>
-                {this.hasChildren() && <div className={styles.leftLine}></div>}
+                {this.hasChildren() && expanded && <div className={styles.leftLine}></div>}
                 <div className={styles.line1}>
                     {this.hasChildren() && (
                         <div className={styles.expandButton} onClick={this.handleChangeExpanded}>
-                            {expanded ? <ArrowTriangleDown /> : <ArrowTriangleRight />}
+                            {expanded ? <ArrowTriangleDown size={14} /> : <ArrowTriangleRight size={14} />}
                         </div>
                     )}
 
                     <div className={styles.nodeName}>{node.name}</div>
                     <div className={styles.editButton} onClick={this.handleChangePropsVisibility}>
-                        {this.isEditButtonVisible(node) && <Edit />}
+                        {this.isEditButtonVisible(node) && <Edit size={14} />}
                     </div>
                     <div className={styles.props}>
                         {node.viewModel && (

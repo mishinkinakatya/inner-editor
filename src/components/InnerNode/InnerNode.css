@@ -1,39 +1,50 @@
 .root{
     position: relative;
+    margin: 5px 0;
 }
-.leftLine{
-    display: inline-block;
-    position: absolute;
-    top: 20px;
-    left: 6px;
-    bottom: 0;
-    width: 2px;
-    background-color: #e0e0e0;
+.line1{
 }
 .expandButton{
     display: inline-block;
+    vertical-align: baseline;
+    line-height: 34px;
+    width: 34px;
+    text-align: center;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
 }
+
 .nodeName{
     display: inline-block;
-    margin-left: 4px;
+    vertical-align: baseline;
+    line-height: 34px;
+    padding: 0px 10px;
     cursor: pointer;
-    color: #1D85D0;
 }
 .editButton{
     display: inline-block;
-    margin-left: 8px;
+    vertical-align: baseline;
+    line-height: 34px;
+    width: 34px;
+    text-align: center;
     cursor: pointer;
 }
 .props{
     display: inline-block;
-    margin-left: 20px;
 }
 .children{
     margin-left: 20px;
 }
-.line1{
-    margin: 5px auto;
+.leftLine{
+    position: absolute;
+    display: inline-block;
+    left: 16px;
+    top: 34px;
+    bottom: 0;
+    width: 2px;
+    background-color: #e0e0e0;
+}
+.expandButton:hover,
+.nodeName:hover,
+.editButton:hover{
+    background-color: #E5E5E5;
 }

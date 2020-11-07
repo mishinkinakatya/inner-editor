@@ -1,23 +1,29 @@
 .viewModelItem{
-    margin: 1px;
-    /*vertical-align: baseline;*/
 }
 .hyphen{
     display: inline-block;
+    margin-right: 4px;
+    vertical-align: baseline;
 }
 .itemName{
     display: inline-block;
-    margin-left: 4px;
+    margin-right: 15px;
+    vertical-align: baseline;
 }
 .itemDescription{
     display: inline-block;
-    margin-left: 15px;
+    vertical-align: baseline;
 }
 .actionButtons{
     display: inline-block;
-    margin-left: 4px;
+    vertical-align: baseline;
 }
 .actionButton{
     display: inline-block;
-    margin: 0 5px;
+    line-height: 33px;
+    width: 34px;
+    text-align: center;
+}
+.actionButton:hover{
+    background-color: #E5E5E5;
 }
