@@ -22,24 +22,27 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         visibility: false,
     };
 
-    public render() {
+    public render(): JSX.Element {
         const { node } = this.props;
         const { expanded, visibility } = this.state;
 
         return (
             <div className={styles.root}>
-                {this.hasChildren() && expanded && <div className={styles.leftLine}></div>}
+                {this.hasChildren() && expanded && <div className={styles.leftLine} />}
                 <div className={styles.line1}>
                     {this.hasChildren() && (
                         <div className={styles.expandButton} onClick={this.handleChangeExpanded}>
                             {expanded ? <ArrowTriangleDown size={14} /> : <ArrowTriangleRight size={14} />}
                         </div>
                     )}
-
-                    <div className={styles.nodeName}>{node.name}</div>
-                    <div className={styles.editButton} onClick={this.handleChangePropsVisibility}>
-                        {this.isEditButtonVisible(node) && <Edit size={14} />}
+                    <div className={styles.nodeName} onClick={this.handleChangeExpanded}>
+                        {node.name}
                     </div>
+                    {this.isEditButtonVisible(node) && (
+                        <div className={styles.editButton} onClick={this.handleChangePropsVisibility}>
+                            <Edit size={14} />
+                        </div>
+                    )}
                     <div className={styles.props}>
                         {node.viewModel && (
                             <InnerNodeViewModel
@@ -72,7 +75,7 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         return node.children.length !== 0;
     }
 
-    private isEditButtonVisible(node: InnerNodeItem) {
+    private isEditButtonVisible(node: InnerNodeItem): boolean | undefined {
         return (
             node.viewModel &&
             (Object.keys(node.viewModel).length > 1 ||
@@ -80,13 +83,13 @@ export class InnerNode extends React.PureComponent<InnerNodeProps, InnerNodeStat
         );
     }
 
-    private readonly handleChangeExpanded = () => {
+    private readonly handleChangeExpanded = (): void => {
         this.setState({
             expanded: !this.state.expanded,
         });
     };
 
-    private readonly handleChangePropsVisibility = () => {
+    private readonly handleChangePropsVisibility = (): void => {
         this.setState({
             visibility: !this.state.visibility,
         });

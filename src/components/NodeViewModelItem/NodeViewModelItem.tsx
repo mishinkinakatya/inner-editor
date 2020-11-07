@@ -14,13 +14,13 @@ export interface ViewModelChanges {
 
 interface NodeViewModelItemProps {
     itemName: string;
-    itemDescription: PropertyDescription;
+    itemDescription: string;
     onChangeViewModelItem({ changeType, itemName, itemDescription }: ViewModelChanges): void;
 }
 
 interface NodeViewModelItemState {
     name: string | undefined;
-    description: PropertyDescription;
+    description: string;
     showingButtons: boolean;
     hovered: boolean;
 }
@@ -33,7 +33,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         hovered: false,
     };
 
-    public render(): JSX.Element | `` {
+    public render(): JSX.Element | "" {
         const { name, description, showingButtons, hovered } = this.state;
 
         return name ? (
@@ -45,10 +45,10 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
                 <div className={styles.hyphen}>
                     <Hyphen />
                 </div>
-                <div className={styles.itemName}>{name} : </div>
+                <div className={styles.itemName}>{name} :</div>
                 <div className={styles.itemDescription}>
                     <Input
-                        borderless={hovered ? false : true}
+                        borderless={!hovered}
                         className={styles.propertyValue}
                         value={description}
                         onChange={this.handleChangeItemDescription}
@@ -57,11 +57,11 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
                 {hovered && <div className={styles.actionButtons}>{this.renderActionButtons(showingButtons)}</div>}
             </div>
         ) : (
-            ``
+            ""
         );
     }
 
-    private renderActionButtons(showingButtons: boolean) {
+    private renderActionButtons(showingButtons: boolean): JSX.Element {
         return (
             <div className={styles.actionButtons}>
                 {!showingButtons && (
@@ -95,26 +95,26 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         );
     }
 
-    private readonly handleHoverProp = () => {
+    private readonly handleHoverProp = (): void => {
         this.setState({
             hovered: !this.state.hovered,
         });
     };
 
-    private readonly handleChangeShowingButtons = () => {
+    private readonly handleChangeShowingButtons = (): void => {
         this.setState({
             showingButtons: !this.state.showingButtons,
         });
     };
 
-    private readonly handleChangeItemDescription = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    private readonly handleChangeItemDescription = (evt: React.ChangeEvent<HTMLInputElement>): void => {
         this.setState({
             description: evt.target.value,
             showingButtons: true,
         });
     };
 
-    private readonly handleSaveButtonClick = () => {
+    private readonly handleSaveButtonClick = (): void => {
         const { onChangeViewModelItem } = this.props;
         const { name, description } = this.state;
 
@@ -126,7 +126,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         this.handleChangeShowingButtons();
     };
 
-    private readonly handleDeleteButtonClick = () => {
+    private readonly handleDeleteButtonClick = (): void => {
         const { onChangeViewModelItem } = this.props;
         const { name } = this.state;
 
@@ -141,7 +141,7 @@ export class NodeViewModelItem extends React.PureComponent<NodeViewModelItemProp
         confirm("Вы действительно хотите удалить свойство?") ? deleteProp() : this.handleCancelButtonClick;
     };
 
-    private readonly handleCancelButtonClick = () => {
+    private readonly handleCancelButtonClick = (): void => {
         this.setState({
             description: this.props.itemDescription,
         });

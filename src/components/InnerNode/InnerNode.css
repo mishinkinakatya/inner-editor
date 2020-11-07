@@ -2,8 +2,6 @@
     position: relative;
     margin: 5px 0;
 }
-.line1{
-}
 .expandButton{
     display: inline-block;
     vertical-align: baseline;
@@ -12,7 +10,6 @@
     text-align: center;
     cursor: pointer;
 }
-
 .nodeName{
     display: inline-block;
     vertical-align: baseline;

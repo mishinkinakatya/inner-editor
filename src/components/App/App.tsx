@@ -30,7 +30,7 @@ export class App extends React.PureComponent<AppProps, AppState> {
         disabled: false,
     };
 
-    componentDidMount() {
+    componentDidMount(): void {
         this.getInner();
     }
 

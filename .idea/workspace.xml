@@ -33,8 +33,7 @@
       <change beforePath="$PROJECT_DIR$/src/components/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNode/InnerNode.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerTree/InnerTree.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InnerNodeViewModel/InnerNodeViewModel.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NodeViewModelItem/NodeViewModelItem.tsx" afterDir="false" />
     </list>
@@ -103,7 +102,7 @@
       <recent name="C:\Users\mishinkina\Desktop\JS\inner-editor\src\stories" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Create Change Set.Remove view model item">
+  <component name="RunManager" selected="Mocha.Inner adapter">
     <configuration name="prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -124,7 +123,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="Create Change Set.CreateChangeSet" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="Create Change Set" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -132,11 +131,10 @@
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST</test-kind>
+      <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/CreateChangeSet.test.ts</test-file>
       <test-names>
         <name value="Create Change Set" />
-        <name value="CreateChangeSet" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -156,7 +154,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Inner adapter.Convert Inner To Inner Node" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
+    <configuration name="Inner adapter" type="mocha-javascript-test-runner" temporary="true" nameIsGenerated="true">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <mocha-package>$PROJECT_DIR$/node_modules/mocha</mocha-package>
@@ -164,11 +162,10 @@
       <pass-parent-env>true</pass-parent-env>
       <ui>bdd</ui>
       <extra-mocha-options />
-      <test-kind>TEST</test-kind>
+      <test-kind>SUITE</test-kind>
       <test-file>$PROJECT_DIR$/test/ConverInnerToInnerNode.test.ts</test-file>
       <test-names>
         <name value="Inner adapter" />
-        <name value="Convert Inner To Inner Node" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -176,9 +173,9 @@
       <list>
         <item itemvalue="npm.verify" />
         <item itemvalue="npm.prettier" />
+        <item itemvalue="Mocha.Inner adapter" />
+        <item itemvalue="Mocha.Create Change Set" />
         <item itemvalue="Mocha.Create Change Set.Remove view model item" />
-        <item itemvalue="Mocha.Create Change Set.CreateChangeSet" />
-        <item itemvalue="Mocha.Inner adapter.Convert Inner To Inner Node" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +197,7 @@
       <workItem from="1603690638781" duration="26068000" />
       <workItem from="1604289986698" duration="28242000" />
       <workItem from="1604381201159" duration="15582000" />
-      <workItem from="1604507756081" duration="51830000" />
+      <workItem from="1604507756081" duration="57235000" />
     </task>
     <servers />
   </component>
@@ -269,32 +266,32 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="535" height="466" key="DebuggerActiveHint/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1602009938563" />
-    <state width="749" height="904" key="GridCell.Tab.0.bottom" timestamp="1604576657393">
-      <screen x="0" y="0" width="1920" height="1032" />
+    <state width="757" height="922" key="GridCell.Tab.0.bottom" timestamp="1604758267220">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="749" height="904" key="GridCell.Tab.0.bottom/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1604576657393" />
-    <state width="733" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
+    <state width="757" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1604758267220" />
     <state width="657" height="922" key="GridCell.Tab.0.bottom/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.bottom/0.0.1280.688@0.0.1280.688" timestamp="1603684481346" />
-    <state width="749" height="904" key="GridCell.Tab.0.center" timestamp="1604576657393">
-      <screen x="0" y="0" width="1920" height="1032" />
+    <state width="757" height="922" key="GridCell.Tab.0.center" timestamp="1604758267220">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="749" height="904" key="GridCell.Tab.0.center/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1604576657393" />
-    <state width="733" height="922" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
+    <state width="757" height="922" key="GridCell.Tab.0.center/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1604758267220" />
     <state width="657" height="922" key="GridCell.Tab.0.center/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.center/0.0.1280.688@0.0.1280.688" timestamp="1603684481345" />
-    <state width="749" height="904" key="GridCell.Tab.0.left" timestamp="1604576657393">
-      <screen x="0" y="0" width="1920" height="1032" />
+    <state width="757" height="922" key="GridCell.Tab.0.left" timestamp="1604758267220">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="749" height="904" key="GridCell.Tab.0.left/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1604576657393" />
-    <state width="733" height="922" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
+    <state width="757" height="922" key="GridCell.Tab.0.left/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1604758267220" />
     <state width="657" height="922" key="GridCell.Tab.0.left/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.left/0.0.1280.688@0.0.1280.688" timestamp="1603684481340" />
-    <state width="749" height="904" key="GridCell.Tab.0.right" timestamp="1604576657393">
-      <screen x="0" y="0" width="1920" height="1032" />
+    <state width="757" height="922" key="GridCell.Tab.0.right" timestamp="1604758267220">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state width="749" height="904" key="GridCell.Tab.0.right/-1920.0.1280.688/0.0.1920.1032/1920.0.1920.1050@0.0.1920.1032" timestamp="1604576657393" />
-    <state width="733" height="922" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1603960090306" />
+    <state width="757" height="922" key="GridCell.Tab.0.right/0.0.1280.688/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1604758267220" />
     <state width="657" height="922" key="GridCell.Tab.0.right/0.0.1280.688/1920.0.1920.1050@1920.0.1920.1050" timestamp="1602841027101" />
     <state width="1237" height="33" key="GridCell.Tab.0.right/0.0.1280.688@0.0.1280.688" timestamp="1603684481346" />
     <state width="1237" height="33" key="GridCell.Tab.1.bottom" timestamp="1603684481350">

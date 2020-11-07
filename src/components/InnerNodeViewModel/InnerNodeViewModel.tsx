@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NodeViewModelItem, ViewModelChanges } from "../NodeViewModelItem/NodeViewModelItem";
-import { NodeViewModel } from "../../domain/Inner";
+import { NodeViewModel, PropertyDescription } from "../../domain/Inner";
 import styles from "./InnerNodeViewModel.css";
 
 interface InnerNodeViewModelProps {
@@ -20,20 +20,24 @@ export class InnerNodeViewModel extends React.PureComponent<InnerNodeViewModelPr
                           <NodeViewModelItem
                               key={item}
                               itemName={item}
-                              itemDescription={nodeViewModel[item]}
+                              itemDescription={this.castItemDescriptionToString(nodeViewModel[item])}
                               onChangeViewModelItem={this.handleChangeViewModelItem}
                           />
                       ))
                     : Object.hasOwnProperty.call(nodeViewModel, "value") && (
                           <NodeViewModelItem
                               itemName="value"
-                              itemDescription={nodeViewModel["value"]}
+                              itemDescription={this.castItemDescriptionToString(nodeViewModel["value"])}
                               onChangeViewModelItem={this.handleChangeViewModelItem}
                           />
                       )}
             </div>
         );
     }
+
+    private readonly castItemDescriptionToString = (itemDescription: PropertyDescription): string => {
+        return Array.isArray(itemDescription) ? itemDescription.join(", ") : itemDescription.toString();
+    };
 
     private readonly handleChangeViewModelItem = ({ changeType, itemName, itemDescription }: ViewModelChanges) => {
         const { onChangeViewModel } = this.props;
